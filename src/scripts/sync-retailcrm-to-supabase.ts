@@ -1,5 +1,5 @@
 import { loadMockOrderEnrichment } from "@/lib/mock-orders";
-import { getReadableError } from "@/lib/errors";
+import { AppError, getReadableError } from "@/lib/errors";
 import { listRetailCrmOrders } from "@/lib/retailcrm";
 import {
   getHighValueOrderIds,
@@ -17,7 +17,7 @@ async function getOrdersCount() {
     .select("retailcrm_order_id", { count: "exact", head: true });
 
   if (error) {
-    throw new Error(`Supabase count query failed: ${error.message}`);
+    throw new AppError("Failed to read current orders count from Supabase.", 500, error.message);
   }
 
   return count ?? 0;
@@ -30,7 +30,7 @@ async function upsertOrders(rows: SupabaseOrderRow[]) {
   });
 
   if (error) {
-    throw new Error(`Supabase upsert failed: ${error.message}`);
+    throw new AppError("Failed to upsert synced orders into Supabase.", 500, error.message);
   }
 }
 
@@ -48,7 +48,11 @@ async function markHighValueOrdersAsNotified(rows: SupabaseOrderRow[]) {
     .in("retailcrm_order_id", ids);
 
   if (error) {
-    throw new Error(`Supabase bulk notification flag update failed: ${error.message}`);
+    throw new AppError(
+      "Failed to mark historical high-value orders as already notified.",
+      500,
+      error.message,
+    );
   }
 }
 
@@ -68,7 +72,11 @@ async function notifyNewHighValueOrders(rows: SupabaseOrderRow[]) {
       .select("retailcrm_order_id");
 
     if (claimError) {
-      throw new Error(`Supabase notification claim failed: ${claimError.message}`);
+      throw new AppError(
+        "Failed to claim a high-value order notification in Supabase.",
+        500,
+        claimError.message,
+      );
     }
 
     if (!claimedRows || claimedRows.length === 0) {
@@ -84,8 +92,10 @@ async function notifyNewHighValueOrders(rows: SupabaseOrderRow[]) {
         .eq("retailcrm_order_id", row.retailcrm_order_id);
 
       if (rollbackError) {
-        throw new Error(
-          `Telegram send failed and rollback failed: ${rollbackError.message}`,
+        throw new AppError(
+          "Telegram send failed and rollback of notification flag also failed.",
+          500,
+          rollbackError.message,
         );
       }
 
@@ -116,6 +126,11 @@ async function main() {
     totalPages = response.pagination?.totalPageCount ?? page;
     page += 1;
   } while (page <= totalPages);
+
+  if (mappedRows.length === 0) {
+    console.log("RetailCRM returned no orders. Nothing to sync.");
+    return;
+  }
 
   await upsertOrders(mappedRows);
 

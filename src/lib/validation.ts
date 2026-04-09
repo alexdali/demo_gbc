@@ -2,6 +2,40 @@ import { z } from "zod";
 
 import { AppError } from "@/lib/errors";
 
+export const mockOrderSchema = z.object({
+  firstName: z.string().trim().min(1, "Mock order must include firstName."),
+  lastName: z.string().trim().min(1, "Mock order must include lastName."),
+  phone: z.string().trim().min(1, "Mock order must include phone."),
+  email: z.string().email().optional(),
+  orderType: z.string().trim().min(1).optional(),
+  orderMethod: z.string().trim().min(1).optional(),
+  status: z.string().trim().min(1).optional(),
+  items: z
+    .array(
+      z.object({
+        productName: z.string().trim().min(1, "Mock order item must include productName."),
+        quantity: z.number().positive("Mock order item quantity must be greater than 0."),
+        initialPrice: z.number().nonnegative("Mock order item price cannot be negative."),
+      }),
+    )
+    .min(1, "Mock order must contain at least one item."),
+  delivery: z
+    .object({
+      address: z
+        .object({
+          city: z.string().trim().min(1).optional(),
+          text: z.string().trim().min(1).optional(),
+        })
+        .optional(),
+    })
+    .optional(),
+  customFields: z.record(z.string(), z.string().optional()).optional(),
+});
+
+export const mockOrdersSchema = z
+  .array(mockOrderSchema)
+  .min(1, "mock_orders.json must contain at least one order.");
+
 export const retailCrmListParamsSchema = z.object({
   page: z.number().int().positive(),
   limit: z.union([z.literal(20), z.literal(50), z.literal(100)]),
@@ -29,6 +63,12 @@ export const telegramTestBodySchema = z.object({
     .max(4000, "Telegram message text is too long.")
     .optional(),
 });
+
+export const syncRequestBodySchema = z
+  .object({
+    confirm: z.literal("sync").optional(),
+  })
+  .optional();
 
 export const importScriptArgsSchema = z.object({
   dryRun: z.boolean(),

@@ -45,9 +45,10 @@ export async function POST(request: Request) {
 export async function GET() {
   return NextResponse.json(
     {
-      ok: true,
-      message: "Use POST to send a Telegram test message",
+      ok: false,
+      error: "Method not allowed.",
+      details: "Use POST to send a Telegram test message.",
     },
-    { status: 200 },
+    { status: 405 },
   );
 }

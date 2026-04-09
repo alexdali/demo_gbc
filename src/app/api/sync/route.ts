@@ -1,13 +1,21 @@
 import { NextResponse } from "next/server";
 
 import { syncRetailCrmToSupabase } from "@/app/api/_lib/sync";
-import { getReadableError } from "@/lib/errors";
+import { AppError, getReadableError } from "@/lib/errors";
+import { syncRequestBodySchema, validateOrThrow } from "@/lib/validation";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-export async function POST() {
+export async function POST(request: Request) {
   try {
+    const rawBody = (await request.json().catch(() => null)) as unknown;
+    validateOrThrow(
+      syncRequestBodySchema,
+      rawBody ?? {},
+      "Sync request body is invalid.",
+    );
+
     const result = await syncRetailCrmToSupabase();
 
     return NextResponse.json(
@@ -34,9 +42,10 @@ export async function POST() {
 export async function GET() {
   return NextResponse.json(
     {
-      ok: true,
-      message: "Use POST to trigger RetailCRM -> Supabase sync",
+      ok: false,
+      error: "Method not allowed.",
+      details: "Use POST to trigger RetailCRM -> Supabase sync.",
     },
-    { status: 200 },
+    { status: 405 },
   );
 }

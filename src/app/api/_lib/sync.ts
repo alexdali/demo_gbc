@@ -1,4 +1,5 @@
 import { getSupabaseAdminClient } from "@/lib/supabase";
+import { AppError } from "@/lib/errors";
 import {
   getHighValueOrderIds,
   isHighValueOrder,
@@ -29,7 +30,7 @@ async function getOrdersCount() {
     .select("retailcrm_order_id", { count: "exact", head: true });
 
   if (error) {
-    throw new Error(`Supabase count query failed: ${error.message}`);
+    throw new AppError("Failed to read current orders count from Supabase.", 500, error.message);
   }
 
   return count ?? 0;
@@ -46,7 +47,7 @@ async function upsertOrders(rows: SupabaseOrderRow[]) {
   });
 
   if (error) {
-    throw new Error(`Supabase upsert failed: ${error.message}`);
+    throw new AppError("Failed to upsert synced orders into Supabase.", 500, error.message);
   }
 }
 
@@ -64,7 +65,11 @@ async function markHighValueOrdersAsNotified(rows: SupabaseOrderRow[]) {
     .in("retailcrm_order_id", ids);
 
   if (error) {
-    throw new Error(`Supabase bulk notification flag update failed: ${error.message}`);
+    throw new AppError(
+      "Failed to mark historical high-value orders as already notified.",
+      500,
+      error.message,
+    );
   }
 }
 
@@ -78,7 +83,11 @@ async function claimHighValueOrder(retailcrmOrderId: number) {
     .select("retailcrm_order_id");
 
   if (error) {
-    throw new Error(`Supabase notification claim failed: ${error.message}`);
+    throw new AppError(
+      "Failed to claim a high-value order notification in Supabase.",
+      500,
+      error.message,
+    );
   }
 
   return Boolean(data?.length);
@@ -92,7 +101,11 @@ async function rollbackHighValueClaim(retailcrmOrderId: number) {
     .eq("retailcrm_order_id", retailcrmOrderId);
 
   if (error) {
-    throw new Error(`Supabase notification rollback failed: ${error.message}`);
+    throw new AppError(
+      "Failed to rollback notification flag in Supabase after Telegram error.",
+      500,
+      error.message,
+    );
   }
 }
 
@@ -111,6 +124,17 @@ export async function syncRetailCrmToSupabase(): Promise<SyncResult> {
     totalPages = response.pagination?.totalPageCount ?? page;
     page += 1;
   } while (page <= totalPages);
+
+  if (rows.length === 0) {
+    return {
+      pagesFetched,
+      ordersFetched: 0,
+      ordersUpserted: 0,
+      notificationsSent: 0,
+      notificationsSkipped: 0,
+      skippedInitialBackfillNotifications: false,
+    };
+  }
 
   await upsertOrders(rows);
 

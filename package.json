@@ -8,6 +8,7 @@
     "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint .",
+    "test": "vitest run",
     "import:retailcrm": "tsx src/scripts/import-mock-to-retailcrm.ts",
     "sync:orders": "tsx src/scripts/sync-retailcrm-to-supabase.ts",
     "telegram:test": "tsx src/scripts/send-test-telegram.ts"

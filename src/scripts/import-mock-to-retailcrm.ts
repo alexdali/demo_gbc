@@ -9,7 +9,11 @@ import {
   findRetailCrmOrderByExternalId,
 } from "@/lib/retailcrm";
 import { createStableExternalId } from "@/lib/transform";
-import { importScriptArgsSchema, validateOrThrow } from "@/lib/validation";
+import {
+  importScriptArgsSchema,
+  mockOrdersSchema,
+  validateOrThrow,
+} from "@/lib/validation";
 import type { MockOrder } from "@/types/order";
 
 function parseArgs() {
@@ -38,7 +42,11 @@ function parseArgs() {
 async function main() {
   const filePath = path.join(process.cwd(), "data", "mock_orders.json");
   const content = await readFile(filePath, "utf-8");
-  const orders = JSON.parse(content) as MockOrder[];
+  const orders = validateOrThrow(
+    mockOrdersSchema,
+    JSON.parse(content) as MockOrder[],
+    "mock_orders.json has invalid structure.",
+  );
   const { dryRun, limit, skipExistingCheck } = parseArgs();
   const selectedOrders = limit ? orders.slice(0, limit) : orders;
 

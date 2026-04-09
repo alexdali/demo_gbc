@@ -12,9 +12,10 @@ export async function sendTelegramMessage(text: string) {
     throw new AppError("Telegram message text is too long.", 400);
   }
 
-  const response = await fetch(
-    `https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/sendMessage`,
-    {
+  let response: Response;
+
+  try {
+    response = await fetch(`https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/sendMessage`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -23,8 +24,14 @@ export async function sendTelegramMessage(text: string) {
         chat_id: env.TELEGRAM_CHAT_ID,
         text: normalizedText,
       }),
-    },
-  );
+    });
+  } catch (error) {
+    throw new AppError(
+      "Telegram request failed before receiving a response.",
+      502,
+      error instanceof Error ? error.message : undefined,
+    );
+  }
 
   if (!response.ok) {
     const body = await response.text();

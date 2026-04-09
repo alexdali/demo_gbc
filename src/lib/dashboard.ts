@@ -9,11 +9,7 @@ export async function getDashboardData() {
     .select("retailcrm_order_id, order_number, created_at, city, status, utm_source, total_amount, notified_high_value")
     .order("created_at", { ascending: true });
 
-  if (error) {
-    throw new Error(`Failed to load dashboard data: ${error.message}`);
-  }
-
-  const rows = (data ?? []) as Array<
+  const rows = ((error ? [] : data) ?? []) as Array<
     Pick<
       SupabaseOrderRow,
       | "retailcrm_order_id"
@@ -36,6 +32,7 @@ export async function getDashboardData() {
   };
 
   return {
+    error: error?.message ?? null,
     rows,
     kpis,
     dailyOrders: buildDailyOrders(rows),

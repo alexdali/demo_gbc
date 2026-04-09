@@ -8,7 +8,7 @@ function formatCurrency(value: number) {
 }
 
 export default async function DashboardPage() {
-  const { kpis, dailyOrders, bySource, byCity } = await getDashboardData();
+  const { error, kpis, dailyOrders, bySource, byCity } = await getDashboardData();
 
   return (
     <main className="dashboard-shell">
@@ -22,6 +22,17 @@ export default async function DashboardPage() {
           </p>
         </div>
       </section>
+
+      {error ? (
+        <section className="error-card">
+          <strong>Данные пока недоступны</strong>
+          <p>
+            Не удалось загрузить таблицу `orders` из Supabase. Проверь схему, env и выполнен
+            ли sync.
+          </p>
+          <code>{error}</code>
+        </section>
+      ) : null}
 
       <section className="kpi-grid">
         <article className="kpi-card">

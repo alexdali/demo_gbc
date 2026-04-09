@@ -32,19 +32,37 @@ async function retailCrmRequest<T>(
   init?: RequestInit & { searchParams?: URLSearchParams },
 ) {
   const url = buildRetailCrmUrl(path, init?.searchParams);
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 20000);
 
-  const response = await fetch(url, {
-    ...init,
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
-      "X-API-KEY": env.RETAILCRM_API_KEY,
-      ...(init?.headers ?? {}),
-    },
-    cache: "no-store",
-  });
+  let response: Response;
+
+  try {
+    response = await fetch(url, {
+      ...init,
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+        "X-API-KEY": env.RETAILCRM_API_KEY,
+        ...(init?.headers ?? {}),
+      },
+      cache: "no-store",
+      signal: controller.signal,
+    });
+  } catch (error) {
+    if (error instanceof Error && error.name === "AbortError") {
+      throw new Error(`RetailCRM request timed out after 20s: ${url.toString()}`);
+    }
+
+    throw error;
+  } finally {
+    clearTimeout(timeout);
+  }
 
   if (!response.ok) {
-    throw new Error(`RetailCRM request failed: ${response.status} ${response.statusText}`);
+    const errorBody = await response.text();
+    throw new Error(
+      `RetailCRM request failed: ${response.status} ${response.statusText}${errorBody ? ` - ${errorBody}` : ""}`,
+    );
   }
 
   const payload = (await response.json()) as RetailCrmResponse<T>;

@@ -10,29 +10,60 @@ import {
 import { createStableExternalId } from "@/lib/transform";
 import type { MockOrder } from "@/types/order";
 
+function parseArgs() {
+  const limitArg = process.argv.find((arg) => arg.startsWith("--limit="));
+  const dryRun = process.argv.includes("--dry-run");
+  const skipExistingCheck = process.argv.includes("--skip-existing-check");
+  const limit = limitArg ? Number(limitArg.split("=")[1]) : null;
+
+  return {
+    dryRun,
+    skipExistingCheck,
+    limit: Number.isFinite(limit) && limit && limit > 0 ? limit : null,
+  };
+}
+
 async function main() {
   const filePath = path.join(process.cwd(), "data", "mock_orders.json");
   const content = await readFile(filePath, "utf-8");
   const orders = JSON.parse(content) as MockOrder[];
+  const { dryRun, limit, skipExistingCheck } = parseArgs();
+  const selectedOrders = limit ? orders.slice(0, limit) : orders;
 
-  for (const [index, order] of orders.entries()) {
+  for (const [index, order] of selectedOrders.entries()) {
     const externalId = createStableExternalId(index, order);
     const payload = buildRetailCrmMockPayload(order, externalId);
 
     try {
-      const existingOrder = await findRetailCrmOrderByExternalId(externalId);
-
-      if (existingOrder) {
+      if (dryRun) {
         console.log(
           JSON.stringify({
             index,
             externalId,
-            retailcrmOrderId: existingOrder.id,
             success: true,
-            skipped: true,
+            skipped: false,
+            dryRun: true,
+            payload,
           }),
         );
         continue;
+      }
+
+      if (!skipExistingCheck) {
+        const existingOrder = await findRetailCrmOrderByExternalId(externalId);
+
+        if (existingOrder) {
+          console.log(
+            JSON.stringify({
+              index,
+              externalId,
+              retailcrmOrderId: existingOrder.id,
+              success: true,
+              skipped: true,
+            }),
+          );
+          continue;
+        }
       }
 
       const response = await createRetailCrmOrder(payload, env.RETAILCRM_SITE_CODE);

@@ -26,7 +26,7 @@ body {
   margin: 0;
   min-height: 100vh;
   color: var(--text);
-  font-family: var(--font-manrope), sans-serif;
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
 }
 
 a {
@@ -136,6 +136,26 @@ a {
 
 .chart-card {
   padding: 24px;
+}
+
+.error-card {
+  padding: 20px 24px;
+  display: grid;
+  gap: 8px;
+  background: rgba(184, 87, 47, 0.08);
+  border: 1px solid rgba(184, 87, 47, 0.18);
+  border-radius: 20px;
+}
+
+.error-card p,
+.error-card code {
+  margin: 0;
+  color: var(--muted);
+}
+
+.error-card code {
+  font-size: 0.9rem;
+  overflow-wrap: anywhere;
 }
 
 .chart-header {

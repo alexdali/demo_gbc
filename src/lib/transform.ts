@@ -1,6 +1,7 @@
 import { format } from "date-fns";
 
 import type { BreakdownPoint, DailyOrdersPoint, MockOrder, RetailCrmOrder, SupabaseOrderRow } from "@/types/order";
+import type { MockOrderEnrichment } from "@/lib/mock-orders";
 
 export function createStableExternalId(index: number, order: MockOrder) {
   return `mock-${index + 1}-${sanitizeToken(order.phone)}`;
@@ -39,7 +40,10 @@ export function calculateRetailCrmOrderTotal(order: RetailCrmOrder) {
   }, 0);
 }
 
-export function mapRetailCrmOrderToSupabaseRow(order: RetailCrmOrder): SupabaseOrderRow {
+export function mapRetailCrmOrderToSupabaseRow(
+  order: RetailCrmOrder,
+  enrichment?: MockOrderEnrichment | null,
+): SupabaseOrderRow {
   return {
     retailcrm_order_id: order.id,
     external_id: order.externalId ?? null,
@@ -47,9 +51,9 @@ export function mapRetailCrmOrderToSupabaseRow(order: RetailCrmOrder): SupabaseO
     created_at: order.createdAt ?? null,
     customer_name: [order.firstName, order.lastName].filter(Boolean).join(" ") || null,
     customer_phone: order.phone ?? null,
-    city: order.delivery?.address?.city ?? null,
+    city: order.delivery?.address?.city ?? enrichment?.city ?? null,
     status: order.status ?? null,
-    utm_source: order.customFields?.utm_source ?? null,
+    utm_source: order.customFields?.utm_source ?? enrichment?.utmSource ?? null,
     total_amount: calculateRetailCrmOrderTotal(order),
     currency: "KZT",
     raw_payload: order,

@@ -14,7 +14,21 @@ export type SyncResult = {
   ordersUpserted: number;
   notificationsSent: number;
   notificationsSkipped: number;
+  skippedInitialBackfillNotifications: boolean;
 };
+
+async function getOrdersCount() {
+  const supabase = getSupabaseAdminClient();
+  const { count, error } = await supabase
+    .from("orders")
+    .select("retailcrm_order_id", { count: "exact", head: true });
+
+  if (error) {
+    throw new Error(`Supabase count query failed: ${error.message}`);
+  }
+
+  return count ?? 0;
+}
 
 async function upsertOrders(rows: SupabaseOrderRow[]) {
   if (rows.length === 0) {
@@ -28,6 +42,26 @@ async function upsertOrders(rows: SupabaseOrderRow[]) {
 
   if (error) {
     throw new Error(`Supabase upsert failed: ${error.message}`);
+  }
+}
+
+async function markHighValueOrdersAsNotified(rows: SupabaseOrderRow[]) {
+  const ids = rows
+    .filter((row) => calculateRetailCrmOrderTotal(row.raw_payload) > 50000)
+    .map((row) => row.retailcrm_order_id);
+
+  if (ids.length === 0) {
+    return;
+  }
+
+  const supabase = getSupabaseAdminClient();
+  const { error } = await supabase
+    .from("orders")
+    .update({ notified_high_value: true })
+    .in("retailcrm_order_id", ids);
+
+  if (error) {
+    throw new Error(`Supabase bulk notification flag update failed: ${error.message}`);
   }
 }
 
@@ -61,6 +95,7 @@ async function rollbackHighValueClaim(retailcrmOrderId: number) {
 
 export async function syncRetailCrmToSupabase(): Promise<SyncResult> {
   const rows: SupabaseOrderRow[] = [];
+  const ordersCountBeforeSync = await getOrdersCount();
   let page = 1;
   let totalPages = 1;
   let pagesFetched = 0;
@@ -75,6 +110,21 @@ export async function syncRetailCrmToSupabase(): Promise<SyncResult> {
   } while (page <= totalPages);
 
   await upsertOrders(rows);
+
+  if (ordersCountBeforeSync === 0) {
+    await markHighValueOrdersAsNotified(rows);
+
+    return {
+      pagesFetched,
+      ordersFetched: rows.length,
+      ordersUpserted: rows.length,
+      notificationsSent: 0,
+      notificationsSkipped: rows.filter(
+        (row) => calculateRetailCrmOrderTotal(row.raw_payload) > 50000,
+      ).length,
+      skippedInitialBackfillNotifications: true,
+    };
+  }
 
   let notificationsSent = 0;
   let notificationsSkipped = 0;
@@ -107,5 +157,6 @@ export async function syncRetailCrmToSupabase(): Promise<SyncResult> {
     ordersUpserted: rows.length,
     notificationsSent,
     notificationsSkipped,
+    skippedInitialBackfillNotifications: false,
   };
 }

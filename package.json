@@ -1,0 +1,41 @@
+{
+  "name": "gbc-analytics-dashboard",
+  "version": "0.1.0",
+  "private": true,
+  "description": "MVP analytics dashboard for RetailCRM -> Supabase sync",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "import:retailcrm": "tsx src/scripts/import-mock-to-retailcrm.ts",
+    "sync:orders": "tsx src/scripts/sync-retailcrm-to-supabase.ts",
+    "telegram:test": "tsx src/scripts/send-test-telegram.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexdali/demo_gbc.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alexdali/demo_gbc/issues"
+  },
+  "homepage": "https://github.com/alexdali/demo_gbc#readme",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.103.0",
+    "date-fns": "^4.1.0",
+    "next": "^16.2.3",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "recharts": "^3.8.1",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.2",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "eslint": "^9.39.4",
+    "eslint-config-next": "^16.2.3",
+    "tsx": "^4.21.0",
+    "typescript": "^6.0.2"
+  }
+}

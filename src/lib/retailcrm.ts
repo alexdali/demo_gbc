@@ -92,7 +92,7 @@ export async function createRetailCrmOrder(order: Record<string, unknown>, site?
 export async function findRetailCrmOrderByExternalId(externalId: string) {
   const searchParams = new URLSearchParams();
   searchParams.append("filter[externalIds][]", externalId);
-  searchParams.set("limit", "1");
+  searchParams.set("limit", "20");
 
   const response = await retailCrmRequest<RetailCrmOrder>("orders", {
     method: "GET",
@@ -131,9 +131,6 @@ export function buildRetailCrmMockPayload(mockOrder: MockOrder, externalId: stri
     lastName: mockOrder.lastName,
     phone: mockOrder.phone,
     email: mockOrder.email,
-    orderType: mockOrder.orderType ?? "eshop-individual",
-    orderMethod: mockOrder.orderMethod ?? "shopping-cart",
-    status: mockOrder.status ?? "new",
     customerComment: mockOrder.delivery?.address?.text ?? undefined,
     items: mockOrder.items.map((item) => ({
       initialPrice: item.initialPrice,
@@ -141,7 +138,13 @@ export function buildRetailCrmMockPayload(mockOrder: MockOrder, externalId: stri
       productName: item.productName,
     })),
     delivery: mockOrder.delivery,
-    customFields: mockOrder.customFields,
     totalSumm,
+    ...(env.RETAILCRM_ORDER_TYPE_CODE
+      ? { orderType: env.RETAILCRM_ORDER_TYPE_CODE }
+      : {}),
+    ...(env.RETAILCRM_ORDER_METHOD_CODE
+      ? { orderMethod: env.RETAILCRM_ORDER_METHOD_CODE }
+      : {}),
+    ...(env.RETAILCRM_STATUS_CODE ? { status: env.RETAILCRM_STATUS_CODE } : {}),
   };
 }

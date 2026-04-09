@@ -2,25 +2,37 @@ import { readFile } from "node:fs/promises";
 import path from "node:path";
 
 import { env } from "@/lib/env";
+import { getReadableError } from "@/lib/errors";
 import {
   buildRetailCrmMockPayload,
   createRetailCrmOrder,
   findRetailCrmOrderByExternalId,
 } from "@/lib/retailcrm";
 import { createStableExternalId } from "@/lib/transform";
+import { importScriptArgsSchema, validateOrThrow } from "@/lib/validation";
 import type { MockOrder } from "@/types/order";
 
 function parseArgs() {
   const limitArg = process.argv.find((arg) => arg.startsWith("--limit="));
   const dryRun = process.argv.includes("--dry-run");
   const skipExistingCheck = process.argv.includes("--skip-existing-check");
-  const limit = limitArg ? Number(limitArg.split("=")[1]) : null;
+  const limitText = limitArg ? limitArg.split("=")[1] : null;
+  const parsedLimit = limitText ? Number(limitText) : null;
 
-  return {
-    dryRun,
-    skipExistingCheck,
-    limit: Number.isFinite(limit) && limit && limit > 0 ? limit : null,
-  };
+  return validateOrThrow(
+    importScriptArgsSchema,
+    {
+      dryRun,
+      skipExistingCheck,
+      limit:
+        limitArg === undefined
+          ? null
+          : Number.isFinite(parsedLimit) && parsedLimit && parsedLimit > 0
+            ? parsedLimit
+            : Number.NaN,
+    },
+    "CLI arguments for import-mock-to-retailcrm are invalid.",
+  );
 }
 
 async function main() {
@@ -77,12 +89,14 @@ async function main() {
         }),
       );
     } catch (error) {
+      const readable = getReadableError(error, "RetailCRM import failed.");
       console.error(
         JSON.stringify({
           index,
           externalId,
           success: false,
-          error: error instanceof Error ? error.message : String(error),
+          error: readable.message,
+          details: readable.details,
         }),
       );
     }
@@ -90,6 +104,7 @@ async function main() {
 }
 
 main().catch((error) => {
-  console.error(error);
+  const readable = getReadableError(error, "Import script failed.");
+  console.error(JSON.stringify({ success: false, error: readable.message, details: readable.details }));
   process.exit(1);
 });

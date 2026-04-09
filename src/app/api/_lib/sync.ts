@@ -1,4 +1,9 @@
 import { getSupabaseAdminClient } from "@/lib/supabase";
+import {
+  getHighValueOrderIds,
+  isHighValueOrder,
+  shouldSkipInitialBackfillNotifications,
+} from "@/lib/sync-logic";
 import { sendTelegramMessage } from "@/lib/telegram";
 import {
   buildHighValueMessage,
@@ -46,9 +51,7 @@ async function upsertOrders(rows: SupabaseOrderRow[]) {
 }
 
 async function markHighValueOrdersAsNotified(rows: SupabaseOrderRow[]) {
-  const ids = rows
-    .filter((row) => calculateRetailCrmOrderTotal(row.raw_payload) > 50000)
-    .map((row) => row.retailcrm_order_id);
+  const ids = getHighValueOrderIds(rows);
 
   if (ids.length === 0) {
     return;
@@ -111,7 +114,7 @@ export async function syncRetailCrmToSupabase(): Promise<SyncResult> {
 
   await upsertOrders(rows);
 
-  if (ordersCountBeforeSync === 0) {
+  if (shouldSkipInitialBackfillNotifications(ordersCountBeforeSync)) {
     await markHighValueOrdersAsNotified(rows);
 
     return {
@@ -119,9 +122,7 @@ export async function syncRetailCrmToSupabase(): Promise<SyncResult> {
       ordersFetched: rows.length,
       ordersUpserted: rows.length,
       notificationsSent: 0,
-      notificationsSkipped: rows.filter(
-        (row) => calculateRetailCrmOrderTotal(row.raw_payload) > 50000,
-      ).length,
+      notificationsSkipped: getHighValueOrderIds(rows).length,
       skippedInitialBackfillNotifications: true,
     };
   }
@@ -130,7 +131,7 @@ export async function syncRetailCrmToSupabase(): Promise<SyncResult> {
   let notificationsSkipped = 0;
 
   for (const row of rows) {
-    if (calculateRetailCrmOrderTotal(row.raw_payload) <= 50000) {
+    if (!isHighValueOrder(row)) {
       notificationsSkipped += 1;
       continue;
     }

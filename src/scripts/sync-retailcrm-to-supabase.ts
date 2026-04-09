@@ -1,5 +1,10 @@
 import { loadMockOrderEnrichment } from "@/lib/mock-orders";
+import { getReadableError } from "@/lib/errors";
 import { listRetailCrmOrders } from "@/lib/retailcrm";
+import {
+  getHighValueOrderIds,
+  shouldSkipInitialBackfillNotifications,
+} from "@/lib/sync-logic";
 import { getSupabaseAdminClient } from "@/lib/supabase";
 import { sendTelegramMessage } from "@/lib/telegram";
 import { buildHighValueMessage, mapRetailCrmOrderToSupabaseRow } from "@/lib/transform";
@@ -30,9 +35,7 @@ async function upsertOrders(rows: SupabaseOrderRow[]) {
 }
 
 async function markHighValueOrdersAsNotified(rows: SupabaseOrderRow[]) {
-  const ids = rows
-    .filter((row) => row.total_amount > 50000)
-    .map((row) => row.retailcrm_order_id);
+  const ids = getHighValueOrderIds(rows);
 
   if (ids.length === 0) {
     return;
@@ -116,7 +119,7 @@ async function main() {
 
   await upsertOrders(mappedRows);
 
-  if (ordersCountBeforeSync === 0) {
+  if (shouldSkipInitialBackfillNotifications(ordersCountBeforeSync)) {
     await markHighValueOrdersAsNotified(mappedRows);
     console.log(
       `Synced ${mappedRows.length} orders and skipped Telegram notifications on initial backfill`,
@@ -130,6 +133,9 @@ async function main() {
 }
 
 main().catch((error) => {
-  console.error(error);
+  const readable = getReadableError(error, "Sync script failed.");
+  console.error(
+    JSON.stringify({ success: false, error: readable.message, details: readable.details }),
+  );
   process.exit(1);
 });

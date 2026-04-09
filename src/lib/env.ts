@@ -12,6 +12,8 @@ const serverSchema = z.object({
   SUPABASE_URL: z.string().url(),
   SUPABASE_ANON_KEY: z.string().min(1),
   SUPABASE_SERVICE_ROLE_KEY: z.string().min(1),
+  SUPABASE_DB_PASSWORD: z.string().min(1).optional(),
+  SUPABASE_ACCESS_TOKEN: z.string().min(1).optional(),
   TELEGRAM_BOT_TOKEN: z.string().min(1),
   TELEGRAM_CHAT_ID: z.string().min(1),
   VERCEL_TOKEN: z.string().min(1).optional(),

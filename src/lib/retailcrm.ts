@@ -1,4 +1,10 @@
 import { env } from "@/lib/env";
+import { AppError } from "@/lib/errors";
+import {
+  retailCrmCreateOrderSchema,
+  retailCrmListParamsSchema,
+  validateOrThrow,
+} from "@/lib/validation";
 import type { MockOrder, RetailCrmOrder } from "@/types/order";
 
 type RetailCrmResponse<T> = {
@@ -50,18 +56,20 @@ async function retailCrmRequest<T>(
     });
   } catch (error) {
     if (error instanceof Error && error.name === "AbortError") {
-      throw new Error(`RetailCRM request timed out after 20s: ${url.toString()}`);
+      throw new AppError("RetailCRM did not respond within 20 seconds.", 504, url.toString());
     }
 
-    throw error;
+    throw new AppError("RetailCRM request failed before receiving a response.", 502);
   } finally {
     clearTimeout(timeout);
   }
 
   if (!response.ok) {
     const errorBody = await response.text();
-    throw new Error(
-      `RetailCRM request failed: ${response.status} ${response.statusText}${errorBody ? ` - ${errorBody}` : ""}`,
+    throw new AppError(
+      `RetailCRM responded with ${response.status} ${response.statusText}.`,
+      502,
+      errorBody || undefined,
     );
   }
 
@@ -69,13 +77,19 @@ async function retailCrmRequest<T>(
 
   if (!payload.success) {
     const message = payload.errorMsg ?? JSON.stringify(payload.errors ?? {});
-    throw new Error(`RetailCRM API error: ${message}`);
+    throw new AppError("RetailCRM rejected the request.", 400, message);
   }
 
   return payload;
 }
 
 export async function createRetailCrmOrder(order: Record<string, unknown>, site?: string) {
+  validateOrThrow(
+    retailCrmCreateOrderSchema,
+    order,
+    "RetailCRM order payload is invalid.",
+  );
+
   const body = new URLSearchParams();
   body.set("order", JSON.stringify(order));
 
@@ -106,9 +120,14 @@ export async function findRetailCrmOrderByExternalId(externalId: string) {
 }
 
 export async function listRetailCrmOrders(page = 1, limit = 100) {
+  const validated = validateOrThrow(
+    retailCrmListParamsSchema,
+    { page, limit },
+    "RetailCRM list parameters are invalid.",
+  );
   const searchParams = new URLSearchParams();
-  searchParams.set("page", String(page));
-  searchParams.set("limit", String(limit));
+  searchParams.set("page", String(validated.page));
+  searchParams.set("limit", String(validated.limit));
 
   return retailCrmRequest<RetailCrmOrder>("orders", {
     method: "GET",

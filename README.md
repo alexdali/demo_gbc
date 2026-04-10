@@ -41,6 +41,7 @@ npx supabase db push --include-all
 npm run dev
 npm run import:retailcrm
 npm run sync:orders
+npm run cleanup:supabase -- --prefix=cleanup-demo-100
 npm run telegram:test
 ```
 
@@ -48,11 +49,13 @@ npm run telegram:test
 
 ```bash
 npx supabase db push --include-all
+npm run import:retailcrm -- --file=data/mock_orders_cleanup_100.json
 ```
 
 ## Flow
 
 1. `import:retailcrm` загружает mock-заказы из [`data/mock_orders.json`](./data/mock_orders.json) в `RetailCRM`
+   или отдельный cleanup-batch из [`data/mock_orders_cleanup_100.json`](./data/mock_orders_cleanup_100.json)
 2. `sync:orders` забирает заказы из `RetailCRM`, сохраняет их в `Supabase` и отправляет Telegram-уведомления для заказов свыше `50_000 ₸`
 3. `/dashboard` показывает агрегированную аналитику из `Supabase`
 4. На `/dashboard` есть кнопка ручной синхронизации. Она запускает server-side sync без логина в браузере.
@@ -70,6 +73,36 @@ npx supabase db push --include-all
 - 50 заказов импортированы в `RetailCRM`
 - 50 заказов синхронизированы в `Supabase`
 - dashboard page читает реальные данные из `Supabase`
+- подготовлен отдельный cleanup-batch на 100 заказов с префиксом `cleanup-demo-100`
+- в cleanup-batch есть 2 заказа свыше `50_000 ₸` для проверки Telegram-уведомлений
+
+## Cleanup batch
+
+Тестовый batch находится в [`data/mock_orders_cleanup_100.json`](./data/mock_orders_cleanup_100.json):
+
+- `100` заказов
+- `externalIdPrefix = cleanup-demo-100`
+- `2` заказа выше `50_000 ₸` для проверки Telegram-уведомлений
+
+Импорт:
+
+```bash
+npm run import:retailcrm -- --file=data/mock_orders_cleanup_100.json
+```
+
+Очистка из `Supabase`:
+
+```bash
+npm run cleanup:supabase -- --prefix=cleanup-demo-100
+```
+
+Для `RetailCRM` этот batch тоже легко найти по `externalId`, потому что все тестовые заказы получают вид:
+
+```text
+cleanup-demo-100-<index>-<phone>
+```
+
+Подтверждённого delete-endpoint для заказов в текущей интеграции не заведено, поэтому cleanup в `RetailCRM` нужно делать вручную по этому префиксу.
 
 ## AI-assisted notes
 

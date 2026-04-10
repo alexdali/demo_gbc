@@ -4,11 +4,21 @@ import type { BreakdownPoint, DailyOrdersPoint, MockOrder, RetailCrmOrder, Supab
 import type { MockOrderEnrichment } from "@/lib/mock-orders";
 
 export function createStableExternalId(index: number, order: MockOrder) {
-  return `mock-${index + 1}-${sanitizeToken(order.phone)}`;
+  const prefix = sanitizeExternalIdPrefix(order.externalIdPrefix ?? "mock");
+  return `${prefix}-${index + 1}-${sanitizeToken(order.phone)}`;
 }
 
 function sanitizeToken(value: string) {
   return value.replace(/[^\dA-Za-z]/g, "");
+}
+
+function sanitizeExternalIdPrefix(value: string) {
+  return value
+    .trim()
+    .toLowerCase()
+    .replace(/[^0-9a-z-]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .replace(/--+/g, "-") || "mock";
 }
 
 export function calculateMockOrderTotal(order: MockOrder) {

@@ -1,4 +1,5 @@
 export type MockOrder = {
+  externalIdPrefix?: string;
   firstName: string;
   lastName: string;
   phone: string;

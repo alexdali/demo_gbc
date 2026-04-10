@@ -18,9 +18,11 @@ import type { MockOrder } from "@/types/order";
 
 function parseArgs() {
   const limitArg = process.argv.find((arg) => arg.startsWith("--limit="));
+  const fileArg = process.argv.find((arg) => arg.startsWith("--file="));
   const dryRun = process.argv.includes("--dry-run");
   const skipExistingCheck = process.argv.includes("--skip-existing-check");
   const limitText = limitArg ? limitArg.split("=")[1] : null;
+  const filePath = fileArg ? fileArg.split("=")[1] : null;
   const parsedLimit = limitText ? Number(limitText) : null;
 
   return validateOrThrow(
@@ -34,20 +36,23 @@ function parseArgs() {
           : Number.isFinite(parsedLimit) && parsedLimit && parsedLimit > 0
             ? parsedLimit
             : Number.NaN,
+      filePath,
     },
     "CLI arguments for import-mock-to-retailcrm are invalid.",
   );
 }
 
 async function main() {
-  const filePath = path.join(process.cwd(), "data", "mock_orders.json");
-  const content = await readFile(filePath, "utf-8");
+  const { dryRun, limit, skipExistingCheck, filePath } = parseArgs();
+  const resolvedFilePath = filePath
+    ? path.resolve(process.cwd(), filePath)
+    : path.join(process.cwd(), "data", "mock_orders.json");
+  const content = await readFile(resolvedFilePath, "utf-8");
   const orders = validateOrThrow(
     mockOrdersSchema,
     JSON.parse(content) as MockOrder[],
-    "mock_orders.json has invalid structure.",
+    `${path.basename(resolvedFilePath)} has invalid structure.`,
   );
-  const { dryRun, limit, skipExistingCheck } = parseArgs();
   const selectedOrders = limit ? orders.slice(0, limit) : orders;
 
   for (const [index, order] of selectedOrders.entries()) {

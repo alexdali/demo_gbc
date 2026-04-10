@@ -1,0 +1,2852 @@
+[
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Алия",
+    "lastName": "Серикова TEST001",
+    "phone": "+77090000001",
+    "email": "cleanup100-001@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Корректирующее бельё Nova Classic",
+        "quantity": 1,
+        "initialPrice": 15000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Алматы",
+        "text": "ул. Абая 101, кв 11"
+      }
+    },
+    "customFields": {
+      "utm_source": "instagram"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Дана",
+    "lastName": "Ибраева TEST002",
+    "phone": "+77090000002",
+    "email": "cleanup100-002@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Утягивающий комбидресс Nova Slim",
+        "quantity": 1,
+        "initialPrice": 28000
+      },
+      {
+        "productName": "Бюстье корректирующее Nova Lift",
+        "quantity": 1,
+        "initialPrice": 22000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Астана",
+        "text": "ул. Туран 102, кв 12"
+      }
+    },
+    "customFields": {
+      "utm_source": "google"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Сабина",
+    "lastName": "Нуртаева TEST003",
+    "phone": "+77090000003",
+    "email": "cleanup100-003@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Корректирующие шорты Nova Shape",
+        "quantity": 2,
+        "initialPrice": 12000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Шымкент",
+        "text": "ул. Достык 103, кв 13"
+      }
+    },
+    "customFields": {
+      "utm_source": "tiktok"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Мадина",
+    "lastName": "Абдуллина TEST004",
+    "phone": "+77090000004",
+    "email": "cleanup100-004@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Бюстье корректирующее Nova Lift",
+        "quantity": 1,
+        "initialPrice": 22000
+      },
+      {
+        "productName": "Пояс-корсет Nova Curve",
+        "quantity": 1,
+        "initialPrice": 17000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Караганда",
+        "text": "ул. Сейфуллина 104, кв 14"
+      }
+    },
+    "customFields": {
+      "utm_source": "direct"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Жанар",
+    "lastName": "Кожахметова TEST005",
+    "phone": "+77090000005",
+    "email": "cleanup100-005@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Утягивающие леггинсы Nova Fit",
+        "quantity": 1,
+        "initialPrice": 18000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Актобе",
+        "text": "ул. Назарбаева 105, кв 15"
+      }
+    },
+    "customFields": {
+      "utm_source": "referral"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Асель",
+    "lastName": "Турсынова TEST006",
+    "phone": "+77090000006",
+    "email": "cleanup100-006@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Пояс-корсет Nova Curve",
+        "quantity": 1,
+        "initialPrice": 17000
+      },
+      {
+        "productName": "Утягивающий комбидресс Nova Slim",
+        "quantity": 1,
+        "initialPrice": 28000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Тараз",
+        "text": "ул. Сатпаева 106, кв 16"
+      }
+    },
+    "customFields": {
+      "utm_source": "instagram"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Камила",
+    "lastName": "Есимова TEST007",
+    "phone": "+77090000007",
+    "email": "cleanup100-007@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Корректирующее бельё Nova Classic",
+        "quantity": 2,
+        "initialPrice": 15000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Алматы",
+        "text": "ул. Кунаева 107, кв 17"
+      }
+    },
+    "customFields": {
+      "utm_source": "google"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Лейла",
+    "lastName": "Кенжеханова TEST008",
+    "phone": "+77090000008",
+    "email": "cleanup100-008@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Утягивающий комбидресс Nova Slim",
+        "quantity": 1,
+        "initialPrice": 28000
+      },
+      {
+        "productName": "Бюстье корректирующее Nova Lift",
+        "quantity": 1,
+        "initialPrice": 22000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Астана",
+        "text": "ул. Момышулы 108, кв 18"
+      }
+    },
+    "customFields": {
+      "utm_source": "tiktok"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Аружан",
+    "lastName": "Сагындыкова TEST009",
+    "phone": "+77090000009",
+    "email": "cleanup100-009@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Корректирующие шорты Nova Shape",
+        "quantity": 1,
+        "initialPrice": 12000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Шымкент",
+        "text": "ул. Абая 109, кв 19"
+      }
+    },
+    "customFields": {
+      "utm_source": "direct"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Диана",
+    "lastName": "Мусина TEST010",
+    "phone": "+77090000010",
+    "email": "cleanup100-010@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Утягивающий комбидресс Nova Slim",
+        "quantity": 2,
+        "initialPrice": 28000
+      },
+      {
+        "productName": "Бюстье корректирующее Nova Lift",
+        "quantity": 1,
+        "initialPrice": 22000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Караганда",
+        "text": "ул. Туран 110, кв 20"
+      }
+    },
+    "customFields": {
+      "utm_source": "referral"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Алия",
+    "lastName": "Серикова TEST011",
+    "phone": "+77090000011",
+    "email": "cleanup100-011@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Утягивающие леггинсы Nova Fit",
+        "quantity": 2,
+        "initialPrice": 18000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Актобе",
+        "text": "ул. Достык 111, кв 21"
+      }
+    },
+    "customFields": {
+      "utm_source": "instagram"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Дана",
+    "lastName": "Ибраева TEST012",
+    "phone": "+77090000012",
+    "email": "cleanup100-012@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Пояс-корсет Nova Curve",
+        "quantity": 1,
+        "initialPrice": 17000
+      },
+      {
+        "productName": "Утягивающий комбидресс Nova Slim",
+        "quantity": 1,
+        "initialPrice": 28000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Тараз",
+        "text": "ул. Сейфуллина 112, кв 22"
+      }
+    },
+    "customFields": {
+      "utm_source": "google"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Сабина",
+    "lastName": "Нуртаева TEST013",
+    "phone": "+77090000013",
+    "email": "cleanup100-013@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Корректирующее бельё Nova Classic",
+        "quantity": 1,
+        "initialPrice": 15000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Алматы",
+        "text": "ул. Назарбаева 113, кв 23"
+      }
+    },
+    "customFields": {
+      "utm_source": "tiktok"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Мадина",
+    "lastName": "Абдуллина TEST014",
+    "phone": "+77090000014",
+    "email": "cleanup100-014@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Утягивающий комбидресс Nova Slim",
+        "quantity": 1,
+        "initialPrice": 28000
+      },
+      {
+        "productName": "Бюстье корректирующее Nova Lift",
+        "quantity": 1,
+        "initialPrice": 22000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Астана",
+        "text": "ул. Сатпаева 114, кв 24"
+      }
+    },
+    "customFields": {
+      "utm_source": "direct"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Жанар",
+    "lastName": "Кожахметова TEST015",
+    "phone": "+77090000015",
+    "email": "cleanup100-015@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Корректирующие шорты Nova Shape",
+        "quantity": 2,
+        "initialPrice": 12000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Шымкент",
+        "text": "ул. Кунаева 115, кв 25"
+      }
+    },
+    "customFields": {
+      "utm_source": "referral"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Асель",
+    "lastName": "Турсынова TEST016",
+    "phone": "+77090000016",
+    "email": "cleanup100-016@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Бюстье корректирующее Nova Lift",
+        "quantity": 1,
+        "initialPrice": 22000
+      },
+      {
+        "productName": "Пояс-корсет Nova Curve",
+        "quantity": 1,
+        "initialPrice": 17000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Караганда",
+        "text": "ул. Момышулы 116, кв 26"
+      }
+    },
+    "customFields": {
+      "utm_source": "instagram"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Камила",
+    "lastName": "Есимова TEST017",
+    "phone": "+77090000017",
+    "email": "cleanup100-017@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Утягивающие леггинсы Nova Fit",
+        "quantity": 1,
+        "initialPrice": 18000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Актобе",
+        "text": "ул. Абая 117, кв 27"
+      }
+    },
+    "customFields": {
+      "utm_source": "google"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Лейла",
+    "lastName": "Кенжеханова TEST018",
+    "phone": "+77090000018",
+    "email": "cleanup100-018@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Пояс-корсет Nova Curve",
+        "quantity": 1,
+        "initialPrice": 17000
+      },
+      {
+        "productName": "Утягивающий комбидресс Nova Slim",
+        "quantity": 1,
+        "initialPrice": 28000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Тараз",
+        "text": "ул. Туран 118, кв 28"
+      }
+    },
+    "customFields": {
+      "utm_source": "tiktok"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Аружан",
+    "lastName": "Сагындыкова TEST019",
+    "phone": "+77090000019",
+    "email": "cleanup100-019@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Корректирующее бельё Nova Classic",
+        "quantity": 2,
+        "initialPrice": 15000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Алматы",
+        "text": "ул. Достык 119, кв 29"
+      }
+    },
+    "customFields": {
+      "utm_source": "direct"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Диана",
+    "lastName": "Мусина TEST020",
+    "phone": "+77090000020",
+    "email": "cleanup100-020@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Утягивающий комбидресс Nova Slim",
+        "quantity": 1,
+        "initialPrice": 28000
+      },
+      {
+        "productName": "Бюстье корректирующее Nova Lift",
+        "quantity": 1,
+        "initialPrice": 22000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Астана",
+        "text": "ул. Сейфуллина 120, кв 30"
+      }
+    },
+    "customFields": {
+      "utm_source": "referral"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Алия",
+    "lastName": "Серикова TEST021",
+    "phone": "+77090000021",
+    "email": "cleanup100-021@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Корректирующие шорты Nova Shape",
+        "quantity": 1,
+        "initialPrice": 12000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Шымкент",
+        "text": "ул. Назарбаева 121, кв 31"
+      }
+    },
+    "customFields": {
+      "utm_source": "instagram"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Дана",
+    "lastName": "Ибраева TEST022",
+    "phone": "+77090000022",
+    "email": "cleanup100-022@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Бюстье корректирующее Nova Lift",
+        "quantity": 1,
+        "initialPrice": 22000
+      },
+      {
+        "productName": "Пояс-корсет Nova Curve",
+        "quantity": 1,
+        "initialPrice": 17000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Караганда",
+        "text": "ул. Сатпаева 122, кв 32"
+      }
+    },
+    "customFields": {
+      "utm_source": "google"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Сабина",
+    "lastName": "Нуртаева TEST023",
+    "phone": "+77090000023",
+    "email": "cleanup100-023@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Утягивающие леггинсы Nova Fit",
+        "quantity": 2,
+        "initialPrice": 18000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Актобе",
+        "text": "ул. Кунаева 123, кв 33"
+      }
+    },
+    "customFields": {
+      "utm_source": "tiktok"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Мадина",
+    "lastName": "Абдуллина TEST024",
+    "phone": "+77090000024",
+    "email": "cleanup100-024@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Пояс-корсет Nova Curve",
+        "quantity": 1,
+        "initialPrice": 17000
+      },
+      {
+        "productName": "Утягивающий комбидресс Nova Slim",
+        "quantity": 1,
+        "initialPrice": 28000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Тараз",
+        "text": "ул. Момышулы 124, кв 34"
+      }
+    },
+    "customFields": {
+      "utm_source": "direct"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Жанар",
+    "lastName": "Кожахметова TEST025",
+    "phone": "+77090000025",
+    "email": "cleanup100-025@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Корректирующее бельё Nova Classic",
+        "quantity": 1,
+        "initialPrice": 15000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Алматы",
+        "text": "ул. Абая 125, кв 35"
+      }
+    },
+    "customFields": {
+      "utm_source": "referral"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Асель",
+    "lastName": "Турсынова TEST026",
+    "phone": "+77090000026",
+    "email": "cleanup100-026@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Утягивающий комбидресс Nova Slim",
+        "quantity": 1,
+        "initialPrice": 28000
+      },
+      {
+        "productName": "Бюстье корректирующее Nova Lift",
+        "quantity": 1,
+        "initialPrice": 22000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Астана",
+        "text": "ул. Туран 126, кв 36"
+      }
+    },
+    "customFields": {
+      "utm_source": "instagram"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Камила",
+    "lastName": "Есимова TEST027",
+    "phone": "+77090000027",
+    "email": "cleanup100-027@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Корректирующие шорты Nova Shape",
+        "quantity": 2,
+        "initialPrice": 12000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Шымкент",
+        "text": "ул. Достык 127, кв 37"
+      }
+    },
+    "customFields": {
+      "utm_source": "google"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Лейла",
+    "lastName": "Кенжеханова TEST028",
+    "phone": "+77090000028",
+    "email": "cleanup100-028@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Бюстье корректирующее Nova Lift",
+        "quantity": 1,
+        "initialPrice": 22000
+      },
+      {
+        "productName": "Пояс-корсет Nova Curve",
+        "quantity": 1,
+        "initialPrice": 17000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Караганда",
+        "text": "ул. Сейфуллина 128, кв 38"
+      }
+    },
+    "customFields": {
+      "utm_source": "tiktok"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Аружан",
+    "lastName": "Сагындыкова TEST029",
+    "phone": "+77090000029",
+    "email": "cleanup100-029@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Утягивающие леггинсы Nova Fit",
+        "quantity": 1,
+        "initialPrice": 18000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Актобе",
+        "text": "ул. Назарбаева 129, кв 39"
+      }
+    },
+    "customFields": {
+      "utm_source": "direct"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Диана",
+    "lastName": "Мусина TEST030",
+    "phone": "+77090000030",
+    "email": "cleanup100-030@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Пояс-корсет Nova Curve",
+        "quantity": 1,
+        "initialPrice": 17000
+      },
+      {
+        "productName": "Утягивающий комбидресс Nova Slim",
+        "quantity": 1,
+        "initialPrice": 28000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Тараз",
+        "text": "ул. Сатпаева 130, кв 40"
+      }
+    },
+    "customFields": {
+      "utm_source": "referral"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Алия",
+    "lastName": "Серикова TEST031",
+    "phone": "+77090000031",
+    "email": "cleanup100-031@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Корректирующее бельё Nova Classic",
+        "quantity": 2,
+        "initialPrice": 15000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Алматы",
+        "text": "ул. Кунаева 131, кв 41"
+      }
+    },
+    "customFields": {
+      "utm_source": "instagram"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Дана",
+    "lastName": "Ибраева TEST032",
+    "phone": "+77090000032",
+    "email": "cleanup100-032@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Утягивающий комбидресс Nova Slim",
+        "quantity": 1,
+        "initialPrice": 28000
+      },
+      {
+        "productName": "Бюстье корректирующее Nova Lift",
+        "quantity": 1,
+        "initialPrice": 22000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Астана",
+        "text": "ул. Момышулы 132, кв 42"
+      }
+    },
+    "customFields": {
+      "utm_source": "google"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Сабина",
+    "lastName": "Нуртаева TEST033",
+    "phone": "+77090000033",
+    "email": "cleanup100-033@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Корректирующие шорты Nova Shape",
+        "quantity": 1,
+        "initialPrice": 12000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Шымкент",
+        "text": "ул. Абая 133, кв 43"
+      }
+    },
+    "customFields": {
+      "utm_source": "tiktok"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Мадина",
+    "lastName": "Абдуллина TEST034",
+    "phone": "+77090000034",
+    "email": "cleanup100-034@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Бюстье корректирующее Nova Lift",
+        "quantity": 1,
+        "initialPrice": 22000
+      },
+      {
+        "productName": "Пояс-корсет Nova Curve",
+        "quantity": 1,
+        "initialPrice": 17000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Караганда",
+        "text": "ул. Туран 134, кв 44"
+      }
+    },
+    "customFields": {
+      "utm_source": "direct"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Жанар",
+    "lastName": "Кожахметова TEST035",
+    "phone": "+77090000035",
+    "email": "cleanup100-035@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Утягивающие леггинсы Nova Fit",
+        "quantity": 2,
+        "initialPrice": 18000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Актобе",
+        "text": "ул. Достык 135, кв 45"
+      }
+    },
+    "customFields": {
+      "utm_source": "referral"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Асель",
+    "lastName": "Турсынова TEST036",
+    "phone": "+77090000036",
+    "email": "cleanup100-036@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Пояс-корсет Nova Curve",
+        "quantity": 1,
+        "initialPrice": 17000
+      },
+      {
+        "productName": "Утягивающий комбидресс Nova Slim",
+        "quantity": 1,
+        "initialPrice": 28000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Тараз",
+        "text": "ул. Сейфуллина 136, кв 46"
+      }
+    },
+    "customFields": {
+      "utm_source": "instagram"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Камила",
+    "lastName": "Есимова TEST037",
+    "phone": "+77090000037",
+    "email": "cleanup100-037@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Корректирующее бельё Nova Classic",
+        "quantity": 1,
+        "initialPrice": 15000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Алматы",
+        "text": "ул. Назарбаева 137, кв 47"
+      }
+    },
+    "customFields": {
+      "utm_source": "google"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Лейла",
+    "lastName": "Кенжеханова TEST038",
+    "phone": "+77090000038",
+    "email": "cleanup100-038@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Утягивающий комбидресс Nova Slim",
+        "quantity": 1,
+        "initialPrice": 28000
+      },
+      {
+        "productName": "Бюстье корректирующее Nova Lift",
+        "quantity": 1,
+        "initialPrice": 22000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Астана",
+        "text": "ул. Сатпаева 138, кв 48"
+      }
+    },
+    "customFields": {
+      "utm_source": "tiktok"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Аружан",
+    "lastName": "Сагындыкова TEST039",
+    "phone": "+77090000039",
+    "email": "cleanup100-039@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Корректирующие шорты Nova Shape",
+        "quantity": 2,
+        "initialPrice": 12000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Шымкент",
+        "text": "ул. Кунаева 139, кв 49"
+      }
+    },
+    "customFields": {
+      "utm_source": "direct"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Диана",
+    "lastName": "Мусина TEST040",
+    "phone": "+77090000040",
+    "email": "cleanup100-040@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Бюстье корректирующее Nova Lift",
+        "quantity": 1,
+        "initialPrice": 22000
+      },
+      {
+        "productName": "Пояс-корсет Nova Curve",
+        "quantity": 1,
+        "initialPrice": 17000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Караганда",
+        "text": "ул. Момышулы 140, кв 50"
+      }
+    },
+    "customFields": {
+      "utm_source": "referral"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Алия",
+    "lastName": "Серикова TEST041",
+    "phone": "+77090000041",
+    "email": "cleanup100-041@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Утягивающие леггинсы Nova Fit",
+        "quantity": 1,
+        "initialPrice": 18000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Актобе",
+        "text": "ул. Абая 141, кв 51"
+      }
+    },
+    "customFields": {
+      "utm_source": "instagram"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Дана",
+    "lastName": "Ибраева TEST042",
+    "phone": "+77090000042",
+    "email": "cleanup100-042@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Пояс-корсет Nova Curve",
+        "quantity": 1,
+        "initialPrice": 17000
+      },
+      {
+        "productName": "Утягивающий комбидресс Nova Slim",
+        "quantity": 1,
+        "initialPrice": 28000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Тараз",
+        "text": "ул. Туран 142, кв 52"
+      }
+    },
+    "customFields": {
+      "utm_source": "google"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Сабина",
+    "lastName": "Нуртаева TEST043",
+    "phone": "+77090000043",
+    "email": "cleanup100-043@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Корректирующее бельё Nova Classic",
+        "quantity": 2,
+        "initialPrice": 15000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Алматы",
+        "text": "ул. Достык 143, кв 53"
+      }
+    },
+    "customFields": {
+      "utm_source": "tiktok"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Мадина",
+    "lastName": "Абдуллина TEST044",
+    "phone": "+77090000044",
+    "email": "cleanup100-044@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Утягивающий комбидресс Nova Slim",
+        "quantity": 1,
+        "initialPrice": 28000
+      },
+      {
+        "productName": "Бюстье корректирующее Nova Lift",
+        "quantity": 1,
+        "initialPrice": 22000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Астана",
+        "text": "ул. Сейфуллина 144, кв 54"
+      }
+    },
+    "customFields": {
+      "utm_source": "direct"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Жанар",
+    "lastName": "Кожахметова TEST045",
+    "phone": "+77090000045",
+    "email": "cleanup100-045@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Корректирующие шорты Nova Shape",
+        "quantity": 1,
+        "initialPrice": 12000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Шымкент",
+        "text": "ул. Назарбаева 145, кв 55"
+      }
+    },
+    "customFields": {
+      "utm_source": "referral"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Асель",
+    "lastName": "Турсынова TEST046",
+    "phone": "+77090000046",
+    "email": "cleanup100-046@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Бюстье корректирующее Nova Lift",
+        "quantity": 1,
+        "initialPrice": 22000
+      },
+      {
+        "productName": "Пояс-корсет Nova Curve",
+        "quantity": 1,
+        "initialPrice": 17000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Караганда",
+        "text": "ул. Сатпаева 146, кв 56"
+      }
+    },
+    "customFields": {
+      "utm_source": "instagram"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Камила",
+    "lastName": "Есимова TEST047",
+    "phone": "+77090000047",
+    "email": "cleanup100-047@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Утягивающие леггинсы Nova Fit",
+        "quantity": 2,
+        "initialPrice": 18000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Актобе",
+        "text": "ул. Кунаева 147, кв 57"
+      }
+    },
+    "customFields": {
+      "utm_source": "google"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Лейла",
+    "lastName": "Кенжеханова TEST048",
+    "phone": "+77090000048",
+    "email": "cleanup100-048@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Пояс-корсет Nova Curve",
+        "quantity": 1,
+        "initialPrice": 17000
+      },
+      {
+        "productName": "Утягивающий комбидресс Nova Slim",
+        "quantity": 1,
+        "initialPrice": 28000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Тараз",
+        "text": "ул. Момышулы 148, кв 58"
+      }
+    },
+    "customFields": {
+      "utm_source": "tiktok"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Аружан",
+    "lastName": "Сагындыкова TEST049",
+    "phone": "+77090000049",
+    "email": "cleanup100-049@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Корректирующее бельё Nova Classic",
+        "quantity": 1,
+        "initialPrice": 15000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Алматы",
+        "text": "ул. Абая 149, кв 59"
+      }
+    },
+    "customFields": {
+      "utm_source": "direct"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Диана",
+    "lastName": "Мусина TEST050",
+    "phone": "+77090000050",
+    "email": "cleanup100-050@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Утягивающий комбидресс Nova Slim",
+        "quantity": 1,
+        "initialPrice": 28000
+      },
+      {
+        "productName": "Бюстье корректирующее Nova Lift",
+        "quantity": 1,
+        "initialPrice": 22000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Астана",
+        "text": "ул. Туран 150, кв 60"
+      }
+    },
+    "customFields": {
+      "utm_source": "referral"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Алия",
+    "lastName": "Серикова TEST051",
+    "phone": "+77090000051",
+    "email": "cleanup100-051@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Корректирующие шорты Nova Shape",
+        "quantity": 2,
+        "initialPrice": 12000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Шымкент",
+        "text": "ул. Достык 151, кв 61"
+      }
+    },
+    "customFields": {
+      "utm_source": "instagram"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Дана",
+    "lastName": "Ибраева TEST052",
+    "phone": "+77090000052",
+    "email": "cleanup100-052@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Бюстье корректирующее Nova Lift",
+        "quantity": 1,
+        "initialPrice": 22000
+      },
+      {
+        "productName": "Пояс-корсет Nova Curve",
+        "quantity": 1,
+        "initialPrice": 17000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Караганда",
+        "text": "ул. Сейфуллина 152, кв 62"
+      }
+    },
+    "customFields": {
+      "utm_source": "google"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Сабина",
+    "lastName": "Нуртаева TEST053",
+    "phone": "+77090000053",
+    "email": "cleanup100-053@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Утягивающие леггинсы Nova Fit",
+        "quantity": 1,
+        "initialPrice": 18000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Актобе",
+        "text": "ул. Назарбаева 153, кв 63"
+      }
+    },
+    "customFields": {
+      "utm_source": "tiktok"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Мадина",
+    "lastName": "Абдуллина TEST054",
+    "phone": "+77090000054",
+    "email": "cleanup100-054@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Пояс-корсет Nova Curve",
+        "quantity": 1,
+        "initialPrice": 17000
+      },
+      {
+        "productName": "Утягивающий комбидресс Nova Slim",
+        "quantity": 1,
+        "initialPrice": 28000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Тараз",
+        "text": "ул. Сатпаева 154, кв 64"
+      }
+    },
+    "customFields": {
+      "utm_source": "direct"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Жанар",
+    "lastName": "Кожахметова TEST055",
+    "phone": "+77090000055",
+    "email": "cleanup100-055@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Корректирующее бельё Nova Classic",
+        "quantity": 2,
+        "initialPrice": 15000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Алматы",
+        "text": "ул. Кунаева 155, кв 65"
+      }
+    },
+    "customFields": {
+      "utm_source": "referral"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Асель",
+    "lastName": "Турсынова TEST056",
+    "phone": "+77090000056",
+    "email": "cleanup100-056@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Утягивающий комбидресс Nova Slim",
+        "quantity": 1,
+        "initialPrice": 28000
+      },
+      {
+        "productName": "Бюстье корректирующее Nova Lift",
+        "quantity": 1,
+        "initialPrice": 22000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Астана",
+        "text": "ул. Момышулы 156, кв 66"
+      }
+    },
+    "customFields": {
+      "utm_source": "instagram"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Камила",
+    "lastName": "Есимова TEST057",
+    "phone": "+77090000057",
+    "email": "cleanup100-057@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Корректирующие шорты Nova Shape",
+        "quantity": 1,
+        "initialPrice": 12000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Шымкент",
+        "text": "ул. Абая 157, кв 67"
+      }
+    },
+    "customFields": {
+      "utm_source": "google"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Лейла",
+    "lastName": "Кенжеханова TEST058",
+    "phone": "+77090000058",
+    "email": "cleanup100-058@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Утягивающий комбидресс Nova Slim",
+        "quantity": 1,
+        "initialPrice": 28000
+      },
+      {
+        "productName": "Утягивающие леггинсы Nova Fit",
+        "quantity": 2,
+        "initialPrice": 18000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Караганда",
+        "text": "ул. Туран 158, кв 68"
+      }
+    },
+    "customFields": {
+      "utm_source": "tiktok"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Аружан",
+    "lastName": "Сагындыкова TEST059",
+    "phone": "+77090000059",
+    "email": "cleanup100-059@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Утягивающие леггинсы Nova Fit",
+        "quantity": 2,
+        "initialPrice": 18000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Актобе",
+        "text": "ул. Достык 159, кв 69"
+      }
+    },
+    "customFields": {
+      "utm_source": "direct"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Диана",
+    "lastName": "Мусина TEST060",
+    "phone": "+77090000060",
+    "email": "cleanup100-060@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Пояс-корсет Nova Curve",
+        "quantity": 1,
+        "initialPrice": 17000
+      },
+      {
+        "productName": "Утягивающий комбидресс Nova Slim",
+        "quantity": 1,
+        "initialPrice": 28000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Тараз",
+        "text": "ул. Сейфуллина 160, кв 70"
+      }
+    },
+    "customFields": {
+      "utm_source": "referral"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Алия",
+    "lastName": "Серикова TEST061",
+    "phone": "+77090000061",
+    "email": "cleanup100-061@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Корректирующее бельё Nova Classic",
+        "quantity": 1,
+        "initialPrice": 15000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Алматы",
+        "text": "ул. Назарбаева 161, кв 71"
+      }
+    },
+    "customFields": {
+      "utm_source": "instagram"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Дана",
+    "lastName": "Ибраева TEST062",
+    "phone": "+77090000062",
+    "email": "cleanup100-062@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Утягивающий комбидресс Nova Slim",
+        "quantity": 1,
+        "initialPrice": 28000
+      },
+      {
+        "productName": "Бюстье корректирующее Nova Lift",
+        "quantity": 1,
+        "initialPrice": 22000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Астана",
+        "text": "ул. Сатпаева 162, кв 72"
+      }
+    },
+    "customFields": {
+      "utm_source": "google"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Сабина",
+    "lastName": "Нуртаева TEST063",
+    "phone": "+77090000063",
+    "email": "cleanup100-063@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Корректирующие шорты Nova Shape",
+        "quantity": 2,
+        "initialPrice": 12000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Шымкент",
+        "text": "ул. Кунаева 163, кв 73"
+      }
+    },
+    "customFields": {
+      "utm_source": "tiktok"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Мадина",
+    "lastName": "Абдуллина TEST064",
+    "phone": "+77090000064",
+    "email": "cleanup100-064@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Бюстье корректирующее Nova Lift",
+        "quantity": 1,
+        "initialPrice": 22000
+      },
+      {
+        "productName": "Пояс-корсет Nova Curve",
+        "quantity": 1,
+        "initialPrice": 17000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Караганда",
+        "text": "ул. Момышулы 164, кв 74"
+      }
+    },
+    "customFields": {
+      "utm_source": "direct"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Жанар",
+    "lastName": "Кожахметова TEST065",
+    "phone": "+77090000065",
+    "email": "cleanup100-065@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Утягивающие леггинсы Nova Fit",
+        "quantity": 1,
+        "initialPrice": 18000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Актобе",
+        "text": "ул. Абая 165, кв 75"
+      }
+    },
+    "customFields": {
+      "utm_source": "referral"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Асель",
+    "lastName": "Турсынова TEST066",
+    "phone": "+77090000066",
+    "email": "cleanup100-066@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Пояс-корсет Nova Curve",
+        "quantity": 1,
+        "initialPrice": 17000
+      },
+      {
+        "productName": "Утягивающий комбидресс Nova Slim",
+        "quantity": 1,
+        "initialPrice": 28000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Тараз",
+        "text": "ул. Туран 166, кв 76"
+      }
+    },
+    "customFields": {
+      "utm_source": "instagram"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Камила",
+    "lastName": "Есимова TEST067",
+    "phone": "+77090000067",
+    "email": "cleanup100-067@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Корректирующее бельё Nova Classic",
+        "quantity": 2,
+        "initialPrice": 15000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Алматы",
+        "text": "ул. Достык 167, кв 77"
+      }
+    },
+    "customFields": {
+      "utm_source": "google"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Лейла",
+    "lastName": "Кенжеханова TEST068",
+    "phone": "+77090000068",
+    "email": "cleanup100-068@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Утягивающий комбидресс Nova Slim",
+        "quantity": 1,
+        "initialPrice": 28000
+      },
+      {
+        "productName": "Бюстье корректирующее Nova Lift",
+        "quantity": 1,
+        "initialPrice": 22000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Астана",
+        "text": "ул. Сейфуллина 168, кв 78"
+      }
+    },
+    "customFields": {
+      "utm_source": "tiktok"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Аружан",
+    "lastName": "Сагындыкова TEST069",
+    "phone": "+77090000069",
+    "email": "cleanup100-069@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Корректирующие шорты Nova Shape",
+        "quantity": 1,
+        "initialPrice": 12000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Шымкент",
+        "text": "ул. Назарбаева 169, кв 79"
+      }
+    },
+    "customFields": {
+      "utm_source": "direct"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Диана",
+    "lastName": "Мусина TEST070",
+    "phone": "+77090000070",
+    "email": "cleanup100-070@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Бюстье корректирующее Nova Lift",
+        "quantity": 1,
+        "initialPrice": 22000
+      },
+      {
+        "productName": "Пояс-корсет Nova Curve",
+        "quantity": 1,
+        "initialPrice": 17000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Караганда",
+        "text": "ул. Сатпаева 170, кв 10"
+      }
+    },
+    "customFields": {
+      "utm_source": "referral"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Алия",
+    "lastName": "Серикова TEST071",
+    "phone": "+77090000071",
+    "email": "cleanup100-071@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Утягивающие леггинсы Nova Fit",
+        "quantity": 2,
+        "initialPrice": 18000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Актобе",
+        "text": "ул. Кунаева 171, кв 11"
+      }
+    },
+    "customFields": {
+      "utm_source": "instagram"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Дана",
+    "lastName": "Ибраева TEST072",
+    "phone": "+77090000072",
+    "email": "cleanup100-072@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Пояс-корсет Nova Curve",
+        "quantity": 1,
+        "initialPrice": 17000
+      },
+      {
+        "productName": "Утягивающий комбидресс Nova Slim",
+        "quantity": 1,
+        "initialPrice": 28000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Тараз",
+        "text": "ул. Момышулы 172, кв 12"
+      }
+    },
+    "customFields": {
+      "utm_source": "google"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Сабина",
+    "lastName": "Нуртаева TEST073",
+    "phone": "+77090000073",
+    "email": "cleanup100-073@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Корректирующее бельё Nova Classic",
+        "quantity": 1,
+        "initialPrice": 15000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Алматы",
+        "text": "ул. Абая 173, кв 13"
+      }
+    },
+    "customFields": {
+      "utm_source": "tiktok"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Мадина",
+    "lastName": "Абдуллина TEST074",
+    "phone": "+77090000074",
+    "email": "cleanup100-074@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Утягивающий комбидресс Nova Slim",
+        "quantity": 1,
+        "initialPrice": 28000
+      },
+      {
+        "productName": "Бюстье корректирующее Nova Lift",
+        "quantity": 1,
+        "initialPrice": 22000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Астана",
+        "text": "ул. Туран 174, кв 14"
+      }
+    },
+    "customFields": {
+      "utm_source": "direct"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Жанар",
+    "lastName": "Кожахметова TEST075",
+    "phone": "+77090000075",
+    "email": "cleanup100-075@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Корректирующие шорты Nova Shape",
+        "quantity": 2,
+        "initialPrice": 12000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Шымкент",
+        "text": "ул. Достык 175, кв 15"
+      }
+    },
+    "customFields": {
+      "utm_source": "referral"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Асель",
+    "lastName": "Турсынова TEST076",
+    "phone": "+77090000076",
+    "email": "cleanup100-076@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Бюстье корректирующее Nova Lift",
+        "quantity": 1,
+        "initialPrice": 22000
+      },
+      {
+        "productName": "Пояс-корсет Nova Curve",
+        "quantity": 1,
+        "initialPrice": 17000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Караганда",
+        "text": "ул. Сейфуллина 176, кв 16"
+      }
+    },
+    "customFields": {
+      "utm_source": "instagram"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Камила",
+    "lastName": "Есимова TEST077",
+    "phone": "+77090000077",
+    "email": "cleanup100-077@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Утягивающие леггинсы Nova Fit",
+        "quantity": 1,
+        "initialPrice": 18000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Актобе",
+        "text": "ул. Назарбаева 177, кв 17"
+      }
+    },
+    "customFields": {
+      "utm_source": "google"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Лейла",
+    "lastName": "Кенжеханова TEST078",
+    "phone": "+77090000078",
+    "email": "cleanup100-078@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Пояс-корсет Nova Curve",
+        "quantity": 1,
+        "initialPrice": 17000
+      },
+      {
+        "productName": "Утягивающий комбидресс Nova Slim",
+        "quantity": 1,
+        "initialPrice": 28000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Тараз",
+        "text": "ул. Сатпаева 178, кв 18"
+      }
+    },
+    "customFields": {
+      "utm_source": "tiktok"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Аружан",
+    "lastName": "Сагындыкова TEST079",
+    "phone": "+77090000079",
+    "email": "cleanup100-079@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Корректирующее бельё Nova Classic",
+        "quantity": 2,
+        "initialPrice": 15000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Алматы",
+        "text": "ул. Кунаева 179, кв 19"
+      }
+    },
+    "customFields": {
+      "utm_source": "direct"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Диана",
+    "lastName": "Мусина TEST080",
+    "phone": "+77090000080",
+    "email": "cleanup100-080@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Утягивающий комбидресс Nova Slim",
+        "quantity": 1,
+        "initialPrice": 28000
+      },
+      {
+        "productName": "Бюстье корректирующее Nova Lift",
+        "quantity": 1,
+        "initialPrice": 22000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Астана",
+        "text": "ул. Момышулы 180, кв 20"
+      }
+    },
+    "customFields": {
+      "utm_source": "referral"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Алия",
+    "lastName": "Серикова TEST081",
+    "phone": "+77090000081",
+    "email": "cleanup100-081@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Корректирующие шорты Nova Shape",
+        "quantity": 1,
+        "initialPrice": 12000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Шымкент",
+        "text": "ул. Абая 181, кв 21"
+      }
+    },
+    "customFields": {
+      "utm_source": "instagram"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Дана",
+    "lastName": "Ибраева TEST082",
+    "phone": "+77090000082",
+    "email": "cleanup100-082@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Бюстье корректирующее Nova Lift",
+        "quantity": 1,
+        "initialPrice": 22000
+      },
+      {
+        "productName": "Пояс-корсет Nova Curve",
+        "quantity": 1,
+        "initialPrice": 17000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Караганда",
+        "text": "ул. Туран 182, кв 22"
+      }
+    },
+    "customFields": {
+      "utm_source": "google"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Сабина",
+    "lastName": "Нуртаева TEST083",
+    "phone": "+77090000083",
+    "email": "cleanup100-083@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Утягивающие леггинсы Nova Fit",
+        "quantity": 2,
+        "initialPrice": 18000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Актобе",
+        "text": "ул. Достык 183, кв 23"
+      }
+    },
+    "customFields": {
+      "utm_source": "tiktok"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Мадина",
+    "lastName": "Абдуллина TEST084",
+    "phone": "+77090000084",
+    "email": "cleanup100-084@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Пояс-корсет Nova Curve",
+        "quantity": 1,
+        "initialPrice": 17000
+      },
+      {
+        "productName": "Утягивающий комбидресс Nova Slim",
+        "quantity": 1,
+        "initialPrice": 28000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Тараз",
+        "text": "ул. Сейфуллина 184, кв 24"
+      }
+    },
+    "customFields": {
+      "utm_source": "direct"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Жанар",
+    "lastName": "Кожахметова TEST085",
+    "phone": "+77090000085",
+    "email": "cleanup100-085@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Корректирующее бельё Nova Classic",
+        "quantity": 1,
+        "initialPrice": 15000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Алматы",
+        "text": "ул. Назарбаева 185, кв 25"
+      }
+    },
+    "customFields": {
+      "utm_source": "referral"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Асель",
+    "lastName": "Турсынова TEST086",
+    "phone": "+77090000086",
+    "email": "cleanup100-086@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Утягивающий комбидресс Nova Slim",
+        "quantity": 1,
+        "initialPrice": 28000
+      },
+      {
+        "productName": "Бюстье корректирующее Nova Lift",
+        "quantity": 1,
+        "initialPrice": 22000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Астана",
+        "text": "ул. Сатпаева 186, кв 26"
+      }
+    },
+    "customFields": {
+      "utm_source": "instagram"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Камила",
+    "lastName": "Есимова TEST087",
+    "phone": "+77090000087",
+    "email": "cleanup100-087@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Корректирующие шорты Nova Shape",
+        "quantity": 2,
+        "initialPrice": 12000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Шымкент",
+        "text": "ул. Кунаева 187, кв 27"
+      }
+    },
+    "customFields": {
+      "utm_source": "google"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Лейла",
+    "lastName": "Кенжеханова TEST088",
+    "phone": "+77090000088",
+    "email": "cleanup100-088@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Бюстье корректирующее Nova Lift",
+        "quantity": 1,
+        "initialPrice": 22000
+      },
+      {
+        "productName": "Пояс-корсет Nova Curve",
+        "quantity": 1,
+        "initialPrice": 17000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Караганда",
+        "text": "ул. Момышулы 188, кв 28"
+      }
+    },
+    "customFields": {
+      "utm_source": "tiktok"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Аружан",
+    "lastName": "Сагындыкова TEST089",
+    "phone": "+77090000089",
+    "email": "cleanup100-089@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Утягивающие леггинсы Nova Fit",
+        "quantity": 1,
+        "initialPrice": 18000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Актобе",
+        "text": "ул. Абая 189, кв 29"
+      }
+    },
+    "customFields": {
+      "utm_source": "direct"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Диана",
+    "lastName": "Мусина TEST090",
+    "phone": "+77090000090",
+    "email": "cleanup100-090@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Пояс-корсет Nova Curve",
+        "quantity": 1,
+        "initialPrice": 17000
+      },
+      {
+        "productName": "Утягивающий комбидресс Nova Slim",
+        "quantity": 1,
+        "initialPrice": 28000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Тараз",
+        "text": "ул. Туран 190, кв 30"
+      }
+    },
+    "customFields": {
+      "utm_source": "referral"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Алия",
+    "lastName": "Серикова TEST091",
+    "phone": "+77090000091",
+    "email": "cleanup100-091@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Корректирующее бельё Nova Classic",
+        "quantity": 2,
+        "initialPrice": 15000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Алматы",
+        "text": "ул. Достык 191, кв 31"
+      }
+    },
+    "customFields": {
+      "utm_source": "instagram"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Дана",
+    "lastName": "Ибраева TEST092",
+    "phone": "+77090000092",
+    "email": "cleanup100-092@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Утягивающий комбидресс Nova Slim",
+        "quantity": 1,
+        "initialPrice": 28000
+      },
+      {
+        "productName": "Бюстье корректирующее Nova Lift",
+        "quantity": 1,
+        "initialPrice": 22000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Астана",
+        "text": "ул. Сейфуллина 192, кв 32"
+      }
+    },
+    "customFields": {
+      "utm_source": "google"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Сабина",
+    "lastName": "Нуртаева TEST093",
+    "phone": "+77090000093",
+    "email": "cleanup100-093@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Корректирующие шорты Nova Shape",
+        "quantity": 1,
+        "initialPrice": 12000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Шымкент",
+        "text": "ул. Назарбаева 193, кв 33"
+      }
+    },
+    "customFields": {
+      "utm_source": "tiktok"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Мадина",
+    "lastName": "Абдуллина TEST094",
+    "phone": "+77090000094",
+    "email": "cleanup100-094@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Бюстье корректирующее Nova Lift",
+        "quantity": 1,
+        "initialPrice": 22000
+      },
+      {
+        "productName": "Пояс-корсет Nova Curve",
+        "quantity": 1,
+        "initialPrice": 17000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Караганда",
+        "text": "ул. Сатпаева 194, кв 34"
+      }
+    },
+    "customFields": {
+      "utm_source": "direct"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Жанар",
+    "lastName": "Кожахметова TEST095",
+    "phone": "+77090000095",
+    "email": "cleanup100-095@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Утягивающие леггинсы Nova Fit",
+        "quantity": 2,
+        "initialPrice": 18000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Актобе",
+        "text": "ул. Кунаева 195, кв 35"
+      }
+    },
+    "customFields": {
+      "utm_source": "referral"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Асель",
+    "lastName": "Турсынова TEST096",
+    "phone": "+77090000096",
+    "email": "cleanup100-096@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Пояс-корсет Nova Curve",
+        "quantity": 1,
+        "initialPrice": 17000
+      },
+      {
+        "productName": "Утягивающий комбидресс Nova Slim",
+        "quantity": 1,
+        "initialPrice": 28000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Тараз",
+        "text": "ул. Момышулы 196, кв 36"
+      }
+    },
+    "customFields": {
+      "utm_source": "instagram"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Камила",
+    "lastName": "Есимова TEST097",
+    "phone": "+77090000097",
+    "email": "cleanup100-097@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Корректирующее бельё Nova Classic",
+        "quantity": 1,
+        "initialPrice": 15000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Алматы",
+        "text": "ул. Абая 197, кв 37"
+      }
+    },
+    "customFields": {
+      "utm_source": "google"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Лейла",
+    "lastName": "Кенжеханова TEST098",
+    "phone": "+77090000098",
+    "email": "cleanup100-098@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Утягивающий комбидресс Nova Slim",
+        "quantity": 1,
+        "initialPrice": 28000
+      },
+      {
+        "productName": "Бюстье корректирующее Nova Lift",
+        "quantity": 1,
+        "initialPrice": 22000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Астана",
+        "text": "ул. Туран 198, кв 38"
+      }
+    },
+    "customFields": {
+      "utm_source": "tiktok"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Аружан",
+    "lastName": "Сагындыкова TEST099",
+    "phone": "+77090000099",
+    "email": "cleanup100-099@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Корректирующие шорты Nova Shape",
+        "quantity": 2,
+        "initialPrice": 12000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Шымкент",
+        "text": "ул. Достык 199, кв 39"
+      }
+    },
+    "customFields": {
+      "utm_source": "direct"
+    }
+  },
+  {
+    "externalIdPrefix": "cleanup-demo-100",
+    "firstName": "Диана",
+    "lastName": "Мусина TEST100",
+    "phone": "+77090000100",
+    "email": "cleanup100-100@example.com",
+    "orderType": "eshop-individual",
+    "orderMethod": "shopping-cart",
+    "status": "new",
+    "items": [
+      {
+        "productName": "Бюстье корректирующее Nova Lift",
+        "quantity": 1,
+        "initialPrice": 22000
+      },
+      {
+        "productName": "Пояс-корсет Nova Curve",
+        "quantity": 1,
+        "initialPrice": 17000
+      }
+    ],
+    "delivery": {
+      "address": {
+        "city": "Караганда",
+        "text": "ул. Сейфуллина 200, кв 40"
+      }
+    },
+    "customFields": {
+      "utm_source": "referral"
+    }
+  }
+]

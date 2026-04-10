@@ -20,6 +20,18 @@ describe("transform", () => {
     expect(createStableExternalId(0, order)).toBe("mock-1-77001234567");
   });
 
+  it("supports a custom external id prefix for cleanup batches", () => {
+    const order: MockOrder = {
+      externalIdPrefix: "cleanup-demo-100",
+      firstName: "Тест",
+      lastName: "Покупатель",
+      phone: "+7 (701) 555-00-11",
+      items: [{ productName: "Test", quantity: 1, initialPrice: 1000 }],
+    };
+
+    expect(createStableExternalId(0, order)).toBe("cleanup-demo-100-1-77015550011");
+  });
+
   it("uses explicit CRM total when it exists", () => {
     const order: RetailCrmOrder = {
       id: 1,

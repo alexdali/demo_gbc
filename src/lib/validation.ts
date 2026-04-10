@@ -3,6 +3,7 @@ import { z } from "zod";
 import { AppError } from "@/lib/errors";
 
 export const mockOrderSchema = z.object({
+  externalIdPrefix: z.string().trim().min(1).optional(),
   firstName: z.string().trim().min(1, "Mock order must include firstName."),
   lastName: z.string().trim().min(1, "Mock order must include lastName."),
   phone: z.string().trim().min(1, "Mock order must include phone."),
@@ -74,6 +75,11 @@ export const importScriptArgsSchema = z.object({
   dryRun: z.boolean(),
   skipExistingCheck: z.boolean(),
   limit: z.number().int().positive().max(50).nullable(),
+  filePath: z.string().trim().min(1).nullable(),
+});
+
+export const cleanupScriptArgsSchema = z.object({
+  prefix: z.string().trim().min(1, "Cleanup prefix is required."),
 });
 
 export function validateOrThrow<T>(schema: z.ZodSchema<T>, value: unknown, message: string) {

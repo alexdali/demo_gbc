@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 
 import { syncRetailCrmToSupabase } from "@/app/api/_lib/sync";
-import { assertDashboardBasicAuth } from "@/lib/auth";
+import { assertApiToken } from "@/lib/api-auth";
 import { AppError, getReadableError } from "@/lib/errors";
 import { syncRequestBodySchema, validateOrThrow } from "@/lib/validation";
 
@@ -10,7 +10,7 @@ export const dynamic = "force-dynamic";
 
 export async function POST(request: Request) {
   try {
-    assertDashboardBasicAuth(request.headers.get("authorization"));
+    assertApiToken(request.headers.get("x-api-token"));
 
     const rawBody = (await request.json().catch(() => null)) as unknown;
     validateOrThrow(

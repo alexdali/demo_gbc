@@ -1,5 +1,6 @@
 import { getSupabaseAdminClient } from "@/lib/supabase";
 import { AppError } from "@/lib/errors";
+import { loadMockOrderEnrichment } from "@/lib/mock-orders";
 import {
   getHighValueOrderIds,
   isHighValueOrder,
@@ -111,6 +112,7 @@ async function rollbackHighValueClaim(retailcrmOrderId: number) {
 
 export async function syncRetailCrmToSupabase(): Promise<SyncResult> {
   const rows: SupabaseOrderRow[] = [];
+  const mockOrderEnrichment = await loadMockOrderEnrichment();
   const ordersCountBeforeSync = await getOrdersCount();
   let page = 1;
   let totalPages = 1;
@@ -120,7 +122,14 @@ export async function syncRetailCrmToSupabase(): Promise<SyncResult> {
     const response = await listRetailCrmOrders(page, 100);
     const orders = response.orders ?? [];
     pagesFetched += 1;
-    rows.push(...orders.map((order) => mapRetailCrmOrderToSupabaseRow(order)));
+    rows.push(
+      ...orders.map((order) =>
+        mapRetailCrmOrderToSupabaseRow(
+          order,
+          order.externalId ? mockOrderEnrichment.get(order.externalId) : null,
+        ),
+      ),
+    );
     totalPages = response.pagination?.totalPageCount ?? page;
     page += 1;
   } while (page <= totalPages);

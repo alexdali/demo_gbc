@@ -120,7 +120,7 @@ export async function syncRetailCrmToSupabase(): Promise<SyncResult> {
     const response = await listRetailCrmOrders(page, 100);
     const orders = response.orders ?? [];
     pagesFetched += 1;
-    rows.push(...orders.map(mapRetailCrmOrderToSupabaseRow));
+    rows.push(...orders.map((order) => mapRetailCrmOrderToSupabaseRow(order)));
     totalPages = response.pagination?.totalPageCount ?? page;
     page += 1;
   } while (page <= totalPages);

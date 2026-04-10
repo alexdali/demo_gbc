@@ -86,14 +86,15 @@ export function buildDailyOrders(rows: Array<Pick<SupabaseOrderRow, "created_at"
   return [...groups.values()].sort((a, b) => a.date.localeCompare(b.date));
 }
 
-export function buildBreakdown(
-  rows: Array<Pick<SupabaseOrderRow, "total_amount"> & Record<string, string | null>>,
-  field: string,
+export function buildBreakdown<T extends { total_amount: number }, K extends keyof T>(
+  rows: T[],
+  field: K,
 ): BreakdownPoint[] {
   const groups = new Map<string, BreakdownPoint>();
 
   for (const row of rows) {
-    const label = row[field] ?? "Не указано";
+    const rawValue = row[field];
+    const label = typeof rawValue === "string" && rawValue.trim() ? rawValue : "Не указано";
     const current = groups.get(label) ?? { label, count: 0, revenue: 0 };
     current.count += 1;
     current.revenue += row.total_amount;

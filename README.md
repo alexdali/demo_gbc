@@ -41,7 +41,7 @@ npx supabase db push --include-all
 npm run dev
 npm run import:retailcrm
 npm run sync:orders
-npm run cleanup:supabase -- --prefix=cleanup-demo-100
+npm run cleanup:supabase -- --prefix=<test-prefix>
 npm run telegram:test
 ```
 
@@ -49,13 +49,13 @@ npm run telegram:test
 
 ```bash
 npx supabase db push --include-all
-npm run import:retailcrm -- --file=data/mock_orders_cleanup_100.json
+npm run import:retailcrm -- --file=data/local/<batch-file>.json
 ```
 
 ## Flow
 
 1. `import:retailcrm` загружает mock-заказы из [`data/mock_orders.json`](./data/mock_orders.json) в `RetailCRM`
-   или отдельный cleanup-batch из [`data/mock_orders_cleanup_100.json`](./data/mock_orders_cleanup_100.json)
+   или отдельный локальный cleanup-batch из `data/local/*.json`
 2. `sync:orders` забирает заказы из `RetailCRM`, сохраняет их в `Supabase` и отправляет Telegram-уведомления для заказов свыше `50_000 ₸`
 3. `/dashboard` показывает агрегированную аналитику из `Supabase`
 4. На `/dashboard` есть кнопка ручной синхронизации. Она запускает server-side sync без логина в браузере.
@@ -73,33 +73,31 @@ npm run import:retailcrm -- --file=data/mock_orders_cleanup_100.json
 - 50 заказов импортированы в `RetailCRM`
 - 50 заказов синхронизированы в `Supabase`
 - dashboard page читает реальные данные из `Supabase`
-- подготовлен отдельный cleanup-batch на 100 заказов с префиксом `cleanup-demo-100`
-- в cleanup-batch есть 2 заказа свыше `50_000 ₸` для проверки Telegram-уведомлений
 
 ## Cleanup batch
 
-Тестовый batch находится в [`data/mock_orders_cleanup_100.json`](./data/mock_orders_cleanup_100.json):
+Тестовые batch-файлы хранятся локально в `data/local/` и не коммитятся в git:
 
-- `100` заказов
-- `externalIdPrefix = cleanup-demo-100`
-- `2` заказа выше `50_000 ₸` для проверки Telegram-уведомлений
+- это защищает `main` от случайного попадания тестовых JSON-наборов
+- при этом код импорта и enrichment умеет читать `data/local/mock_orders*.json`
+- для тестовых batch-файлов всегда используй отдельный `externalIdPrefix`
 
 Импорт:
 
 ```bash
-npm run import:retailcrm -- --file=data/mock_orders_cleanup_100.json
+npm run import:retailcrm -- --file=data/local/<batch-file>.json
 ```
 
 Очистка из `Supabase`:
 
 ```bash
-npm run cleanup:supabase -- --prefix=cleanup-demo-100
+npm run cleanup:supabase -- --prefix=<test-prefix>
 ```
 
-Для `RetailCRM` этот batch тоже легко найти по `externalId`, потому что все тестовые заказы получают вид:
+Для `RetailCRM` такой batch тоже легко найти по `externalId`, потому что тестовые заказы получают вид:
 
 ```text
-cleanup-demo-100-<index>-<phone>
+<prefix>-<index>-<phone>
 ```
 
 Подтверждённого delete-endpoint для заказов в текущей интеграции не заведено, поэтому cleanup в `RetailCRM` нужно делать вручную по этому префиксу.

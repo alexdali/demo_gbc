@@ -12,6 +12,10 @@ coverage/
 .env
 .env.*
 !.env.example
+data/local/*.json
+!data/local/.gitkeep
+data/local/*.json
+!data/local/.gitkeep
 
 # Deployment tooling
 .vercel/

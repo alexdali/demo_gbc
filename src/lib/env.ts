@@ -3,6 +3,8 @@ import "dotenv/config";
 import { z } from "zod";
 
 const serverSchema = z.object({
+  DASHBOARD_BASIC_AUTH_USERNAME: z.string().min(1).optional(),
+  DASHBOARD_BASIC_AUTH_PASSWORD: z.string().min(1).optional(),
   RETAILCRM_BASE_URL: z.string().url(),
   RETAILCRM_API_KEY: z.string().min(1),
   RETAILCRM_SITE_CODE: z.string().min(1).optional(),

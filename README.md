@@ -102,6 +102,35 @@ npm run cleanup:supabase -- --prefix=<test-prefix>
 
 Подтверждённого delete-endpoint для заказов в текущей интеграции не заведено, поэтому cleanup в `RetailCRM` нужно делать вручную по этому префиксу.
 
+## Branch workflow
+
+Рабочая схема для окружений:
+
+- `main` = production
+- `stage` = preview / staging
+- локальные test-batch JSON живут только в `data/local/` и не коммитятся
+
+Почему merge остаётся чистым:
+
+- в git tracked только базовый набор [`data/mock_orders.json`](./data/mock_orders.json)
+- `data/local/*.json` добавлены в `.gitignore`
+- любые временные batch-файлы для проверки Telegram, cleanup или нагрузочного импорта остаются локальными
+- при merge `stage -> main` в репозиторий попадают только код, README и универсальные скрипты, но не сами тестовые заказы
+
+Рекомендуемый порядок работы:
+
+1. Делать продуктовые изменения в `stage`
+2. Для тестов создавать batch-файлы только в `data/local/`
+3. Импортировать их через `npm run import:retailcrm -- --file=data/local/<batch-file>.json`
+4. После проверки чистить `Supabase` по prefix через `npm run cleanup:supabase -- --prefix=<test-prefix>`
+5. Мержить `stage` в `main` только после того, как `git status` чистый
+
+Практический результат:
+
+- `main` не загрязняется тестовыми JSON-наборами
+- `Preview` и `Production` можно разводить по разным `RetailCRM` и `Supabase`
+- тестовые сценарии с большими batch-импортами и Telegram-проверками не мешают production-ветке
+
 ## AI-assisted notes
 
 Основные решения и сложности:

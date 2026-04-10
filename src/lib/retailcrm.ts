@@ -151,6 +151,7 @@ export function buildRetailCrmMockPayload(mockOrder: MockOrder, externalId: stri
     phone: mockOrder.phone,
     email: mockOrder.email,
     customerComment: mockOrder.delivery?.address?.text ?? undefined,
+    customFields: mockOrder.customFields,
     items: mockOrder.items.map((item) => ({
       initialPrice: item.initialPrice,
       quantity: item.quantity,

@@ -3,6 +3,7 @@ import "dotenv/config";
 import { z } from "zod";
 
 const serverSchema = z.object({
+  API_PROTECTION_TOKEN: z.string().min(1).optional(),
   RETAILCRM_BASE_URL: z.string().url(),
   RETAILCRM_API_KEY: z.string().min(1),
   RETAILCRM_SITE_CODE: z.string().min(1).optional(),

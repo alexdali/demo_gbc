@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 
+import { assertApiToken } from "@/lib/api-auth";
 import { getReadableError } from "@/lib/errors";
 import { sendTelegramMessage } from "@/lib/telegram";
 import { telegramTestBodySchema, validateOrThrow } from "@/lib/validation";
@@ -9,6 +10,8 @@ export const dynamic = "force-dynamic";
 
 export async function POST(request: Request) {
   try {
+    assertApiToken(request.headers.get("x-api-token"));
+
     const rawBody = (await request.json().catch(() => null)) as unknown;
     const body = validateOrThrow(
       telegramTestBodySchema,

@@ -1,4 +1,5 @@
 import { DashboardCharts } from "@/components/dashboard-charts";
+import { SyncButton } from "@/components/sync-button";
 import { getDashboardData } from "@/lib/dashboard";
 
 export const dynamic = "force-dynamic";
@@ -18,9 +19,10 @@ export default async function DashboardPage() {
           <h1>Заказы из RetailCRM</h1>
           <p>
             Данные загружаются из Supabase после синхронизации заказов из CRM.
-            Дашборд построен как MVP без авторизации и сложного BI-слоя.
+            Дашборд построен как MVP без пользовательской авторизации и сложного BI-слоя.
           </p>
         </div>
+        <SyncButton />
       </section>
 
       {error ? (

@@ -107,6 +107,60 @@ a {
 
 .dashboard-hero {
   padding: 32px;
+  display: grid;
+  gap: 20px;
+}
+
+.dashboard-actions {
+  display: grid;
+  gap: 8px;
+  justify-items: start;
+}
+
+.primary-action-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 20px;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--secondary), #356b5a);
+  color: #fff;
+  font-size: 0.96rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 16px 40px rgba(36, 68, 58, 0.18);
+}
+
+.primary-action-button:disabled {
+  cursor: wait;
+  opacity: 0.72;
+}
+
+.inline-status,
+.inline-status-details {
+  margin: 0;
+}
+
+.inline-status {
+  font-weight: 700;
+}
+
+.inline-status--idle {
+  color: var(--text);
+}
+
+.inline-status--success {
+  color: var(--secondary);
+}
+
+.inline-status--error {
+  color: var(--accent);
+}
+
+.inline-status-details {
+  color: var(--muted);
 }
 
 .kpi-grid {

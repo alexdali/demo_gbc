@@ -21,6 +21,10 @@ type Props = {
   byCity: BreakdownPoint[];
 };
 
+function formatNumber(value: number) {
+  return new Intl.NumberFormat("ru-RU").format(value);
+}
+
 export function DashboardCharts({ dailyOrders, bySource, byCity }: Props) {
   return (
     <div className="charts-grid">
@@ -31,11 +35,15 @@ export function DashboardCharts({ dailyOrders, bySource, byCity }: Props) {
         </div>
         <div className="chart-body">
           <ResponsiveContainer width="100%" height={320}>
-            <LineChart data={dailyOrders}>
+            <LineChart data={dailyOrders} margin={{ top: 8, right: 16, bottom: 8, left: 20 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#d6d2c4" />
               <XAxis dataKey="date" stroke="#54473f" />
-              <YAxis stroke="#54473f" />
-              <Tooltip />
+              <YAxis
+                stroke="#54473f"
+                width={88}
+                tickFormatter={(value) => formatNumber(Number(value))}
+              />
+              <Tooltip formatter={(value) => formatNumber(Number(value))} />
               <Legend />
               <Line type="monotone" dataKey="orders" stroke="#b8572f" strokeWidth={3} />
               <Line type="monotone" dataKey="revenue" stroke="#24443a" strokeWidth={3} />

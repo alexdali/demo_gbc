@@ -8,7 +8,7 @@ create table if not exists public.orders (
   customer_phone text,
   city text,
   status text,
-  utm_source text,
+  utm_source_code text,
   total_amount numeric(12, 2) not null default 0,
   currency text not null default 'KZT',
   raw_payload jsonb not null,
@@ -18,5 +18,5 @@ create table if not exists public.orders (
 
 create index if not exists orders_created_at_idx on public.orders (created_at);
 create index if not exists orders_total_amount_idx on public.orders (total_amount);
-create index if not exists orders_utm_source_idx on public.orders (utm_source);
+create index if not exists orders_utm_source_code_idx on public.orders (utm_source_code);
 create index if not exists orders_city_idx on public.orders (city);

@@ -4,6 +4,7 @@ export type MockOrder = {
   lastName: string;
   phone: string;
   email?: string;
+  utmSource?: string;
   orderType?: string;
   orderMethod?: string;
   status?: string;
@@ -61,7 +62,7 @@ export type SupabaseOrderRow = {
   customer_phone: string | null;
   city: string | null;
   status: string | null;
-  utm_source: string | null;
+  utm_source_code: string | null;
   total_amount: number;
   currency: string;
   raw_payload: RetailCrmOrder;

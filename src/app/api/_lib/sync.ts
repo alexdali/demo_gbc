@@ -55,13 +55,13 @@ async function upsertOrders(rows: SupabaseOrderRow[]) {
 
 async function getExistingOrdersMap(retailcrmOrderIds: number[]) {
   if (retailcrmOrderIds.length === 0) {
-    return new Map<number, Pick<SupabaseOrderRow, "city" | "utm_source">>();
+    return new Map<number, Pick<SupabaseOrderRow, "city" | "utm_source_code">>();
   }
 
   const supabase = getSupabaseAdminClient();
   const { data, error } = await supabase
     .from("orders")
-    .select("retailcrm_order_id, city, utm_source")
+    .select("retailcrm_order_id, city, utm_source_code")
     .in("retailcrm_order_id", retailcrmOrderIds);
 
   if (error) {
@@ -73,7 +73,7 @@ async function getExistingOrdersMap(retailcrmOrderIds: number[]) {
       row.retailcrm_order_id,
       {
         city: row.city ?? null,
-        utm_source: row.utm_source ?? null,
+        utm_source_code: row.utm_source_code ?? null,
       },
     ]),
   );

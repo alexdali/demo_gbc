@@ -23,7 +23,7 @@ function makeRow(id: number, total: number): SupabaseOrderRow {
     customer_phone: "+77000000000",
     city: "Алматы",
     status: "new",
-    utm_source: "instagram",
+    utm_source_code: "instagram",
     total_amount: total,
     currency: "KZT",
     raw_payload: rawPayload,
@@ -53,17 +53,17 @@ describe("sync logic", () => {
     const incoming = {
       ...makeRow(10, 18000),
       city: null,
-      utm_source: null,
+      utm_source_code: null,
     };
 
     expect(
       preserveExistingAnalyticFields(incoming, {
         city: "Алматы",
-        utm_source: "instagram",
+        utm_source_code: "instagram",
       }),
     ).toMatchObject({
       city: "Алматы",
-      utm_source: "instagram",
+      utm_source_code: "instagram",
     });
   });
 });

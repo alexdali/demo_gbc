@@ -48,7 +48,7 @@ export async function loadMockOrderEnrichment() {
 
     for (const [index, order] of orders.entries()) {
       lookup.set(createStableExternalId(index, order), {
-        utmSource: order.customFields?.utm_source ?? null,
+        utmSource: order.utmSource ?? null,
         city: order.delivery?.address?.city ?? null,
       });
     }

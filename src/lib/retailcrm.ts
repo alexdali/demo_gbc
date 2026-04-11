@@ -1,5 +1,6 @@
 import { env } from "@/lib/env";
 import { AppError } from "@/lib/errors";
+import { buildRetailCrmCustomFields } from "@/lib/utm-source";
 import {
   retailCrmCreateOrderSchema,
   retailCrmListParamsSchema,
@@ -151,7 +152,7 @@ export function buildRetailCrmMockPayload(mockOrder: MockOrder, externalId: stri
     phone: mockOrder.phone,
     email: mockOrder.email,
     customerComment: mockOrder.delivery?.address?.text ?? undefined,
-    customFields: mockOrder.customFields,
+    customFields: buildRetailCrmCustomFields(mockOrder.utmSource, mockOrder.customFields),
     items: mockOrder.items.map((item) => ({
       initialPrice: item.initialPrice,
       quantity: item.quantity,

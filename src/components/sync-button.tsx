@@ -10,8 +10,8 @@ import {
 
 const initialState: DashboardSyncActionState = {
   ok: true,
-  title: "Нажми кнопку, чтобы вручную обновить данные из RetailCRM.",
-  details: "Кнопка запускает серверную синхронизацию без показа секретов в браузере.",
+  title: "Ручная синхронизация из RetailCRM.",
+  details: "Запуск идёт на сервере без раскрытия секретов в браузере.",
 };
 
 const pendingSteps = [
@@ -38,7 +38,7 @@ function SubmitButton() {
 
   return (
     <button type="submit" className="primary-action-button" disabled={pending}>
-      {pending ? "Синхронизация..." : "Синхронизировать RetailCRM"}
+      {pending ? "Синхронизация..." : "Синхронизировать"}
     </button>
   );
 }

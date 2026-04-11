@@ -33,9 +33,14 @@ function makeRow(id: number, total: number): SupabaseOrderRow {
 }
 
 describe("sync logic", () => {
-  it("skips telegram notifications only on initial backfill", () => {
-    expect(shouldSkipInitialBackfillNotifications(0)).toBe(true);
-    expect(shouldSkipInitialBackfillNotifications(1)).toBe(false);
+  it("skips telegram notifications on initial backfill by default", () => {
+    expect(shouldSkipInitialBackfillNotifications(0, false)).toBe(true);
+    expect(shouldSkipInitialBackfillNotifications(1, false)).toBe(false);
+  });
+
+  it("allows telegram notifications on initial backfill when the feature flag is enabled", () => {
+    expect(shouldSkipInitialBackfillNotifications(0, true)).toBe(false);
+    expect(shouldSkipInitialBackfillNotifications(1, true)).toBe(false);
   });
 
   it("detects high-value orders from CRM payload totals", () => {

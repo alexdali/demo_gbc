@@ -4,6 +4,7 @@ import { z } from "zod";
 
 const serverSchema = z.object({
   API_PROTECTION_TOKEN: z.string().min(1).optional(),
+  SEND_INITIAL_BACKFILL_NOTIFICATIONS: z.enum(["true", "false"]).optional(),
   RETAILCRM_BASE_URL: z.string().url(),
   RETAILCRM_API_KEY: z.string().min(1),
   RETAILCRM_SITE_CODE: z.string().min(1).optional(),
@@ -28,6 +29,11 @@ const clientSchema = z.object({
 });
 
 export const env = serverSchema.parse(process.env);
+
+export const featureFlags = {
+  sendInitialBackfillNotifications:
+    process.env.SEND_INITIAL_BACKFILL_NOTIFICATIONS === "true",
+};
 
 export const publicEnv = clientSchema.parse({
   SUPABASE_URL: process.env.SUPABASE_URL,

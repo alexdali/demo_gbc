@@ -1,4 +1,5 @@
 import { loadMockOrderEnrichment } from "@/lib/mock-orders";
+import { featureFlags } from "@/lib/env";
 import { AppError, getReadableError } from "@/lib/errors";
 import { listRetailCrmOrders } from "@/lib/retailcrm";
 import {
@@ -134,7 +135,12 @@ async function main() {
 
   await upsertOrders(mappedRows);
 
-  if (shouldSkipInitialBackfillNotifications(ordersCountBeforeSync)) {
+  if (
+    shouldSkipInitialBackfillNotifications(
+      ordersCountBeforeSync,
+      featureFlags.sendInitialBackfillNotifications,
+    )
+  ) {
     await markHighValueOrdersAsNotified(mappedRows);
     console.log(
       `Synced ${mappedRows.length} orders and skipped Telegram notifications on initial backfill`,

@@ -75,17 +75,21 @@ npm run import:retailcrm -- --file=data/local/<batch-file>.json
 В `RetailCRM` это значение записывается в одно фиксированное пользовательское поле заказа
 типа `Справочник` с кодом `utm_source`.
 
-Разовая настройка в CRM:
+Bootstrap в CRM:
 
-1. Создать справочник со значениями-источниками (`instagram`, `google`, `direct`, `tiktok`, `referral`, `newsletter`)
-2. Создать пользовательское поле заказа типа `Справочник`
-3. Задать этому полю символьный код `utm_source`
+```bash
+npm run bootstrap:utm-dictionary
+```
 
-После этого импорт будет писать в `order.customFields.utm_source` код элемента справочника,
-а sync будет читать это же поле обратно и сохранять в `Supabase` как `utm_source_code`.
+Скрипт:
 
-Важно: на текущем test instance documented endpoints `/api/v5/custom-fields/*` отвечали `404`,
-поэтому создание справочника и поля сейчас предполагается через UI CRM, не через bootstrap-скрипт.
+- парсит все уникальные `utmSource` значения из `data/mock_orders.json`
+- создаёт справочник `utm_source_dict`
+- обновляет элементы справочника отдельным `edit` запросом
+- создаёт поле заказа типа `Справочник` с кодом `utm_source`
+
+После этого импорт пишет в `order.customFields.utm_source` код элемента справочника,
+а sync читает это же поле обратно и сохраняет в `Supabase` как `utm_source_code`.
 
 ## Current status
 

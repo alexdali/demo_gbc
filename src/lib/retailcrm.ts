@@ -12,14 +12,40 @@ type RetailCrmResponse<T> = {
   success: boolean;
   generatedId?: number;
   id?: number;
+  code?: string;
   order?: T;
   orders?: T[];
+  customDictionary?: T;
+  customDictionaries?: T[];
+  customField?: T;
+  customFields?: T[];
   pagination?: {
     currentPage: number;
     totalPageCount: number;
   };
   errorMsg?: string;
   errors?: Record<string, string>;
+};
+
+export type RetailCrmCustomDictionaryElement = {
+  name: string;
+  code?: string;
+  ordering?: number;
+};
+
+export type RetailCrmCustomDictionary = {
+  name: string;
+  code: string;
+  elements: RetailCrmCustomDictionaryElement[];
+};
+
+export type RetailCrmCustomField = {
+  name: string;
+  code: string;
+  type: string;
+  entity: string;
+  dictionary?: string;
+  displayArea?: string;
 };
 
 export function buildRetailCrmUrl(path: string, params?: URLSearchParams) {
@@ -84,6 +110,20 @@ async function retailCrmRequest<T>(
   return payload;
 }
 
+async function retailCrmJsonParamRequest<T>(
+  path: string,
+  paramName: string,
+  value: Record<string, unknown>,
+) {
+  const body = new URLSearchParams();
+  body.set(paramName, JSON.stringify(value));
+
+  return retailCrmRequest<T>(path, {
+    method: "POST",
+    body,
+  });
+}
+
 export async function createRetailCrmOrder(order: Record<string, unknown>, site?: string) {
   validateOrThrow(
     retailCrmCreateOrderSchema,
@@ -137,6 +177,111 @@ export async function listRetailCrmOrders(page = 1, limit = 100) {
     },
     searchParams,
   });
+}
+
+export async function listRetailCrmCustomDictionaries(limit = 20) {
+  const searchParams = new URLSearchParams();
+  searchParams.set("limit", String(limit));
+
+  return retailCrmRequest<RetailCrmCustomDictionary>("custom-fields/dictionaries", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    searchParams,
+  });
+}
+
+export async function findRetailCrmCustomDictionary(code: string) {
+  const response = await retailCrmRequest<RetailCrmCustomDictionary>(
+    `custom-fields/dictionaries/${code}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    },
+  );
+
+  return response.customDictionary ?? null;
+}
+
+export async function createRetailCrmCustomDictionary(dictionary: {
+  name: string;
+  code: string;
+  elements: RetailCrmCustomDictionaryElement[];
+}) {
+  return retailCrmJsonParamRequest<string>(
+    "custom-fields/dictionaries/create",
+    "customDictionary",
+    dictionary,
+  );
+}
+
+export async function editRetailCrmCustomDictionary(
+  code: string,
+  dictionary: {
+    name: string;
+    elements: RetailCrmCustomDictionaryElement[];
+  },
+) {
+  return retailCrmJsonParamRequest<string>(
+    `custom-fields/dictionaries/${code}/edit`,
+    "customDictionary",
+    dictionary,
+  );
+}
+
+export async function listRetailCrmCustomFields(entity: "order", limit = 20) {
+  const searchParams = new URLSearchParams();
+  searchParams.set("limit", String(limit));
+  searchParams.set("filter[entity]", entity);
+
+  return retailCrmRequest<RetailCrmCustomField>("custom-fields", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    searchParams,
+  });
+}
+
+export async function findRetailCrmCustomField(entity: "order", code: string) {
+  const response = await retailCrmRequest<RetailCrmCustomField>(
+    `custom-fields/${entity}/${code}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    },
+  );
+
+  return response.customField ?? null;
+}
+
+export async function createRetailCrmOrderDictionaryField(field: {
+  name: string;
+  code: string;
+  dictionary: string;
+  displayArea?: string;
+  ordering?: number;
+  required?: boolean;
+  inFilter?: boolean;
+  inList?: boolean;
+  inGroupActions?: boolean;
+  viewMode?: string;
+  viewModeMobile?: string;
+}) {
+  return retailCrmJsonParamRequest<string>(
+    "custom-fields/order/create",
+    "customField",
+    {
+      type: "dictionary",
+      entity: "order",
+      ...field,
+    },
+  );
 }
 
 export function buildRetailCrmMockPayload(mockOrder: MockOrder, externalId: string) {

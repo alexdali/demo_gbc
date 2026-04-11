@@ -83,6 +83,11 @@ export const cleanupScriptArgsSchema = z.object({
   prefix: z.string().trim().min(1, "Cleanup prefix is required."),
 });
 
+export const bootstrapUtmDictionaryArgsSchema = z.object({
+  dryRun: z.boolean(),
+  filePath: z.string().trim().min(1).nullable(),
+});
+
 export function validateOrThrow<T>(schema: z.ZodSchema<T>, value: unknown, message: string) {
   const result = schema.safeParse(value);
 

@@ -77,6 +77,9 @@ SEND_INITIAL_BACKFILL_NOTIFICATIONS=true
 - первый sync в пустую `orders` отправит уведомления по всем крупным заказам
 - повторные sync не будут дублировать их, потому что `notified_high_value` уже станет `true`
 
+<details>
+<summary><strong>UTM Source Field</strong></summary>
+
 ## UTM Source Field
 
 Внутренний стандарт mock/test JSON:
@@ -103,6 +106,8 @@ npm run bootstrap:utm-dictionary
 После этого импорт пишет в `order.customFields.utm_source` код элемента справочника,
 а sync читает это же поле обратно и сохраняет в `Supabase` как `utm_source_code`.
 
+</details>
+
 ## Current status
 
 - проект и структура настроены
@@ -111,6 +116,9 @@ npm run bootstrap:utm-dictionary
 - Telegram test-send и high-value notifications работают
 - dashboard page читает реальные данные из `Supabase`
 - `main` и `stage` можно разводить на отдельные `RetailCRM` и `Supabase` окружения
+
+<details>
+<summary><strong>Cleanup batch</strong></summary>
 
 ## Cleanup batch
 
@@ -140,6 +148,11 @@ npm run cleanup:supabase -- --prefix=<test-prefix>
 
 Подтверждённого delete-endpoint для заказов в текущей интеграции не заведено, поэтому cleanup в `RetailCRM` нужно делать вручную по этому префиксу.
 
+</details>
+
+<details>
+<summary><strong>Branch workflow</strong></summary>
+
 ## Branch workflow
 
 Рабочая схема для окружений:
@@ -168,6 +181,8 @@ npm run cleanup:supabase -- --prefix=<test-prefix>
 - `main` не загрязняется тестовыми JSON-наборами
 - `Preview` и `Production` можно разводить по разным `RetailCRM` и `Supabase`
 - тестовые сценарии с большими batch-импортами и Telegram-проверками не мешают production-ветке
+
+</details>
 
 ## AI-assisted notes
 

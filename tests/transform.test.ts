@@ -6,6 +6,7 @@ import {
   createStableExternalId,
   mapRetailCrmOrderToSupabaseRow,
 } from "@/lib/transform";
+import { RETAILCRM_UTM_SOURCE_FIELD_CODE } from "@/lib/utm-source";
 import type { MockOrder, RetailCrmOrder } from "@/types/order";
 
 describe("transform", () => {
@@ -54,7 +55,7 @@ describe("transform", () => {
     expect(calculateRetailCrmOrderTotal(order)).toBe(58000);
   });
 
-  it("falls back to enrichment for utm_source and city", () => {
+  it("falls back to enrichment for utm_source_code and city", () => {
     const order: RetailCrmOrder = {
       id: 99,
       externalId: "mock-1-77001234567",
@@ -69,9 +70,23 @@ describe("transform", () => {
       city: "Алматы",
     });
 
-    expect(row.utm_source).toBe("instagram");
+    expect(row.utm_source_code).toBe("instagram");
     expect(row.city).toBe("Алматы");
     expect(row.total_amount).toBe(15000);
+  });
+
+  it("reads utm_source_code from the RetailCRM custom field", () => {
+    const order: RetailCrmOrder = {
+      id: 100,
+      items: [{ quantity: 1, initialPrice: 15000 }],
+      customFields: {
+        [RETAILCRM_UTM_SOURCE_FIELD_CODE]: "instagram",
+      },
+    };
+
+    const row = mapRetailCrmOrderToSupabaseRow(order);
+
+    expect(row.utm_source_code).toBe("instagram");
   });
 
   it("builds a readable telegram message", () => {
@@ -81,7 +96,7 @@ describe("transform", () => {
       total_amount: 78000,
       customer_name: "Иван Петров",
       city: "Алматы",
-      utm_source: "instagram",
+      utm_source_code: "instagram",
     });
 
     expect(message).toContain("Новый крупный заказ");

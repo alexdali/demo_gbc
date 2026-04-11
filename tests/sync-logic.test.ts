@@ -3,6 +3,7 @@ import { describe, expect, it } from "vitest";
 import {
   getHighValueOrderIds,
   isHighValueOrder,
+  preserveExistingAnalyticFields,
   shouldSkipInitialBackfillNotifications,
 } from "@/lib/sync-logic";
 import type { RetailCrmOrder, SupabaseOrderRow } from "@/types/order";
@@ -22,7 +23,7 @@ function makeRow(id: number, total: number): SupabaseOrderRow {
     customer_phone: "+77000000000",
     city: "Алматы",
     status: "new",
-    utm_source: "instagram",
+    utm_source_code: "instagram",
     total_amount: total,
     currency: "KZT",
     raw_payload: rawPayload,
@@ -46,5 +47,23 @@ describe("sync logic", () => {
     const rows = [makeRow(1, 12000), makeRow(2, 51000), makeRow(3, 90000)];
 
     expect(getHighValueOrderIds(rows)).toEqual([2, 3]);
+  });
+
+  it("preserves existing analytic fields when a fresh sync row has nulls", () => {
+    const incoming = {
+      ...makeRow(10, 18000),
+      city: null,
+      utm_source_code: null,
+    };
+
+    expect(
+      preserveExistingAnalyticFields(incoming, {
+        city: "Алматы",
+        utm_source_code: "instagram",
+      }),
+    ).toMatchObject({
+      city: "Алматы",
+      utm_source_code: "instagram",
+    });
   });
 });

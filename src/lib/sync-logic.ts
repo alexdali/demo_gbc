@@ -1,6 +1,8 @@
 import { calculateRetailCrmOrderTotal } from "@/lib/transform";
 import type { SupabaseOrderRow } from "@/types/order";
 
+type PreservedFields = Pick<SupabaseOrderRow, "city" | "utm_source_code">;
+
 export function shouldSkipInitialBackfillNotifications(ordersCountBeforeSync: number) {
   return ordersCountBeforeSync === 0;
 }
@@ -13,4 +15,19 @@ export function getHighValueOrderIds(rows: SupabaseOrderRow[]) {
 
 export function isHighValueOrder(row: SupabaseOrderRow) {
   return calculateRetailCrmOrderTotal(row.raw_payload) > 50000;
+}
+
+export function preserveExistingAnalyticFields(
+  row: SupabaseOrderRow,
+  existing?: PreservedFields | null,
+) {
+  if (!existing) {
+    return row;
+  }
+
+  return {
+    ...row,
+    city: row.city ?? existing.city ?? null,
+    utm_source_code: row.utm_source_code ?? existing.utm_source_code ?? null,
+  };
 }

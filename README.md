@@ -65,6 +65,32 @@ npm run import:retailcrm -- --file=data/local/<batch-file>.json
 
 Важно: при первом backfill в пустую таблицу `orders` sync не рассылает пачку исторических Telegram-уведомлений. Крупные заказы просто помечаются как уже обработанные. Новые заказы после этого уведомляются штатно.
 
+## UTM Source Field
+
+Внутренний стандарт mock/test JSON:
+
+- источник заказа хранится в поле `utmSource`
+- это внутренний формат проекта, а не сырой payload `RetailCRM`
+
+В `RetailCRM` это значение записывается в одно фиксированное пользовательское поле заказа
+типа `Справочник` с кодом `utm_source`.
+
+Bootstrap в CRM:
+
+```bash
+npm run bootstrap:utm-dictionary
+```
+
+Скрипт:
+
+- парсит все уникальные `utmSource` значения из `data/mock_orders.json`
+- создаёт справочник `utm_source_dict`
+- обновляет элементы справочника отдельным `edit` запросом
+- создаёт поле заказа типа `Справочник` с кодом `utm_source`
+
+После этого импорт пишет в `order.customFields.utm_source` код элемента справочника,
+а sync читает это же поле обратно и сохраняет в `Supabase` как `utm_source_code`.
+
 ## Current status
 
 - проект и структура настроены
@@ -137,7 +163,7 @@ npm run cleanup:supabase -- --prefix=<test-prefix>
 
 - для `RetailCRM` пришлось адаптировать payload под demo-instance и сделать импорт идемпотентным по `externalId`
 - schema в `Supabase` заведена как SQL-файл и как CLI migration
-- для `utm_source` добавлен fallback из локального `mock_orders.json`, так как demo CRM не всегда возвращает custom fields в ожидаемом виде
+- для `utmSource` зафиксирован единый внутренний формат JSON, а в CRM это поле пишется как dictionary-backed `customFields.utm_source`
 - уведомления в Telegram защищены от дублей и не спамят при первичном backfill
 
 Что осталось добить:

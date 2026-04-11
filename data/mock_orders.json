@@ -20,9 +20,7 @@
         "text": "ул. Абая 150, кв 12"
       }
     },
-    "customFields": {
-      "utm_source": "instagram"
-    }
+    "utmSource": "instagram"
   },
   {
     "firstName": "Дина",
@@ -50,9 +48,7 @@
         "text": "мкр. Самал-2, д. 44, кв 78"
       }
     },
-    "customFields": {
-      "utm_source": "google"
-    }
+    "utmSource": "google"
   },
   {
     "firstName": "Нургуль",
@@ -80,9 +76,7 @@
         "text": "пр. Туран 45, кв 3"
       }
     },
-    "customFields": {
-      "utm_source": "instagram"
-    }
+    "utmSource": "instagram"
   },
   {
     "firstName": "Малика",
@@ -105,9 +99,7 @@
         "text": "ул. Сейфуллина 89, кв 55"
       }
     },
-    "customFields": {
-      "utm_source": "tiktok"
-    }
+    "utmSource": "tiktok"
   },
   {
     "firstName": "Зарина",
@@ -130,9 +122,7 @@
         "text": "ул. Достык 132, кв 201"
       }
     },
-    "customFields": {
-      "utm_source": "instagram"
-    }
+    "utmSource": "instagram"
   },
   {
     "firstName": "Ирина",
@@ -155,9 +145,7 @@
         "text": "ул. Розыбакиева 201, кв 14"
       }
     },
-    "customFields": {
-      "utm_source": "direct"
-    }
+    "utmSource": "direct"
   },
   {
     "firstName": "Светлана",
@@ -180,9 +168,7 @@
         "text": "ул. Кенесары 67, кв 9"
       }
     },
-    "customFields": {
-      "utm_source": "google"
-    }
+    "utmSource": "google"
   },
   {
     "firstName": "Гульнара",
@@ -210,9 +196,7 @@
         "text": "мкр. Аlatau, д. 7, кв 33"
       }
     },
-    "customFields": {
-      "utm_source": "referral"
-    }
+    "utmSource": "referral"
   },
   {
     "firstName": "Анара",
@@ -245,9 +229,7 @@
         "text": "ул. Навои 50, кв 17"
       }
     },
-    "customFields": {
-      "utm_source": "instagram"
-    }
+    "utmSource": "instagram"
   },
   {
     "firstName": "Камила",
@@ -270,9 +252,7 @@
         "text": "ул. Манаса 23, кв 5"
       }
     },
-    "customFields": {
-      "utm_source": "google"
-    }
+    "utmSource": "google"
   },
   {
     "firstName": "Жанар",
@@ -300,9 +280,7 @@
         "text": "пр. Аль-Фараби 77, кв 102"
       }
     },
-    "customFields": {
-      "utm_source": "instagram"
-    }
+    "utmSource": "instagram"
   },
   {
     "firstName": "Самал",
@@ -325,9 +303,7 @@
         "text": "ул. Жандосова 58, кв 21"
       }
     },
-    "customFields": {
-      "utm_source": "direct"
-    }
+    "utmSource": "direct"
   },
   {
     "firstName": "Назгуль",
@@ -355,9 +331,7 @@
         "text": "ул. Бейбитшилик 34, кв 44"
       }
     },
-    "customFields": {
-      "utm_source": "google"
-    }
+    "utmSource": "google"
   },
   {
     "firstName": "Татьяна",
@@ -380,9 +354,7 @@
         "text": "ул. Тимирязева 12, кв 8"
       }
     },
-    "customFields": {
-      "utm_source": "referral"
-    }
+    "utmSource": "referral"
   },
   {
     "firstName": "Алия",
@@ -410,9 +382,7 @@
         "text": "мкр. Мамыр-3, д. 15, кв 67"
       }
     },
-    "customFields": {
-      "utm_source": "instagram"
-    }
+    "utmSource": "instagram"
   },
   {
     "firstName": "Венера",
@@ -435,9 +405,7 @@
         "text": "пр. Республики 44, кв 19"
       }
     },
-    "customFields": {
-      "utm_source": "tiktok"
-    }
+    "utmSource": "tiktok"
   },
   {
     "firstName": "Меруерт",
@@ -465,9 +433,7 @@
         "text": "ул. Богенбай батыра 130, кв 4"
       }
     },
-    "customFields": {
-      "utm_source": "instagram"
-    }
+    "utmSource": "instagram"
   },
   {
     "firstName": "Ботагоз",
@@ -490,9 +456,7 @@
         "text": "ул. Панфилова 99, кв 31"
       }
     },
-    "customFields": {
-      "utm_source": "google"
-    }
+    "utmSource": "google"
   },
   {
     "firstName": "Оксана",
@@ -520,9 +484,7 @@
         "text": "ул. Сарыарка 11, кв 56"
       }
     },
-    "customFields": {
-      "utm_source": "direct"
-    }
+    "utmSource": "direct"
   },
   {
     "firstName": "Гульмира",
@@ -545,9 +507,7 @@
         "text": "мкр. Калкаман, д. 22, кв 88"
       }
     },
-    "customFields": {
-      "utm_source": "instagram"
-    }
+    "utmSource": "instagram"
   },
   {
     "firstName": "Диана",
@@ -580,9 +540,7 @@
         "text": "пр. Байтурсынова 68, кв 13"
       }
     },
-    "customFields": {
-      "utm_source": "referral"
-    }
+    "utmSource": "referral"
   },
   {
     "firstName": "Эльмира",
@@ -605,9 +563,7 @@
         "text": "ул. Гагарина 156, кв 7"
       }
     },
-    "customFields": {
-      "utm_source": "google"
-    }
+    "utmSource": "google"
   },
   {
     "firstName": "Карина",
@@ -635,9 +591,7 @@
         "text": "ул. Маресьева 5, кв 42"
       }
     },
-    "customFields": {
-      "utm_source": "instagram"
-    }
+    "utmSource": "instagram"
   },
   {
     "firstName": "Акмарал",
@@ -660,9 +614,7 @@
         "text": "ул. Толе би 220, кв 65"
       }
     },
-    "customFields": {
-      "utm_source": "tiktok"
-    }
+    "utmSource": "tiktok"
   },
   {
     "firstName": "Лаура",
@@ -690,9 +642,7 @@
         "text": "мкр. Орбита-2, д. 8, кв 29"
       }
     },
-    "customFields": {
-      "utm_source": "instagram"
-    }
+    "utmSource": "instagram"
   },
   {
     "firstName": "Перизат",
@@ -720,9 +670,7 @@
         "text": "ул. Саина 24, кв 90"
       }
     },
-    "customFields": {
-      "utm_source": "google"
-    }
+    "utmSource": "google"
   },
   {
     "firstName": "Жанна",
@@ -750,9 +698,7 @@
         "text": "мкр. Нурсат, д. 3, кв 111"
       }
     },
-    "customFields": {
-      "utm_source": "instagram"
-    }
+    "utmSource": "instagram"
   },
   {
     "firstName": "Асель",
@@ -775,9 +721,7 @@
         "text": "ул. Муратбаева 88, кв 16"
       }
     },
-    "customFields": {
-      "utm_source": "referral"
-    }
+    "utmSource": "referral"
   },
   {
     "firstName": "Рита",
@@ -800,9 +744,7 @@
         "text": "ул. Шолохова 3, кв 24"
       }
     },
-    "customFields": {
-      "utm_source": "direct"
-    }
+    "utmSource": "direct"
   },
   {
     "firstName": "Сабина",
@@ -825,9 +767,7 @@
         "text": "ул. Брусиловского 159, кв 38"
       }
     },
-    "customFields": {
-      "utm_source": "instagram"
-    }
+    "utmSource": "instagram"
   },
   {
     "firstName": "Мадина",
@@ -860,9 +800,7 @@
         "text": "пр. Рыскулова 14, кв 77"
       }
     },
-    "customFields": {
-      "utm_source": "google"
-    }
+    "utmSource": "google"
   },
   {
     "firstName": "Гульсим",
@@ -890,9 +828,7 @@
         "text": "ул. Кунаева 45, кв 51"
       }
     },
-    "customFields": {
-      "utm_source": "instagram"
-    }
+    "utmSource": "instagram"
   },
   {
     "firstName": "Надежда",
@@ -915,9 +851,7 @@
         "text": "ул. Фурманова 111, кв 6"
       }
     },
-    "customFields": {
-      "utm_source": "direct"
-    }
+    "utmSource": "direct"
   },
   {
     "firstName": "Айнур",
@@ -945,9 +879,7 @@
         "text": "мкр. Думан-2, д. 18, кв 93"
       }
     },
-    "customFields": {
-      "utm_source": "tiktok"
-    }
+    "utmSource": "tiktok"
   },
   {
     "firstName": "Шолпан",
@@ -970,9 +902,7 @@
         "text": "ул. Байдибек би 77, кв 22"
       }
     },
-    "customFields": {
-      "utm_source": "google"
-    }
+    "utmSource": "google"
   },
   {
     "firstName": "Арина",
@@ -1000,9 +930,7 @@
         "text": "ул. Желтоксан 120, кв 47"
       }
     },
-    "customFields": {
-      "utm_source": "instagram"
-    }
+    "utmSource": "instagram"
   },
   {
     "firstName": "Зульфия",
@@ -1030,9 +958,7 @@
         "text": "ул. Ленина 67, кв 3"
       }
     },
-    "customFields": {
-      "utm_source": "referral"
-    }
+    "utmSource": "referral"
   },
   {
     "firstName": "Айдана",
@@ -1065,9 +991,7 @@
         "text": "пр. Сейфуллина 200, кв 15"
       }
     },
-    "customFields": {
-      "utm_source": "instagram"
-    }
+    "utmSource": "instagram"
   },
   {
     "firstName": "Маргарита",
@@ -1095,9 +1019,7 @@
         "text": "ул. Жибек жолы 45, кв 60"
       }
     },
-    "customFields": {
-      "utm_source": "google"
-    }
+    "utmSource": "google"
   },
   {
     "firstName": "Толкын",
@@ -1120,9 +1042,7 @@
         "text": "ул. Утепова 10, кв 27"
       }
     },
-    "customFields": {
-      "utm_source": "instagram"
-    }
+    "utmSource": "instagram"
   },
   {
     "firstName": "Тамара",
@@ -1150,9 +1070,7 @@
         "text": "мкр. Жетысу-1, д. 6, кв 71"
       }
     },
-    "customFields": {
-      "utm_source": "direct"
-    }
+    "utmSource": "direct"
   },
   {
     "firstName": "Раушан",
@@ -1175,9 +1093,7 @@
         "text": "ул. Аль-Фараби 19, кв 84"
       }
     },
-    "customFields": {
-      "utm_source": "instagram"
-    }
+    "utmSource": "instagram"
   },
   {
     "firstName": "Инкар",
@@ -1210,9 +1126,7 @@
         "text": "ул. Сатпаева 39, кв 11"
       }
     },
-    "customFields": {
-      "utm_source": "google"
-    }
+    "utmSource": "google"
   },
   {
     "firstName": "Эльвира",
@@ -1235,9 +1149,7 @@
         "text": "мкр. 17, д. 52, кв 8"
       }
     },
-    "customFields": {
-      "utm_source": "tiktok"
-    }
+    "utmSource": "tiktok"
   },
   {
     "firstName": "Юлия",
@@ -1265,9 +1177,7 @@
         "text": "ул. Момышулы 78, кв 36"
       }
     },
-    "customFields": {
-      "utm_source": "referral"
-    }
+    "utmSource": "referral"
   },
   {
     "firstName": "Асем",
@@ -1295,9 +1205,7 @@
         "text": "пр. Гагарина 203, кв 52"
       }
     },
-    "customFields": {
-      "utm_source": "instagram"
-    }
+    "utmSource": "instagram"
   },
   {
     "firstName": "Бибигуль",
@@ -1325,9 +1233,7 @@
         "text": "ул. Куйши Дина 5, кв 18"
       }
     },
-    "customFields": {
-      "utm_source": "google"
-    }
+    "utmSource": "google"
   },
   {
     "firstName": "Виктория",
@@ -1350,9 +1256,7 @@
         "text": "ул. Ходжанова 76, кв 62"
       }
     },
-    "customFields": {
-      "utm_source": "instagram"
-    }
+    "utmSource": "instagram"
   },
   {
     "firstName": "Ажар",
@@ -1380,9 +1284,7 @@
         "text": "мкр. Аксай-4, д. 30, кв 45"
       }
     },
-    "customFields": {
-      "utm_source": "direct"
-    }
+    "utmSource": "direct"
   },
   {
     "firstName": "Феруза",
@@ -1415,8 +1317,6 @@
         "text": "ул. Мухамедханова 8, кв 73"
       }
     },
-    "customFields": {
-      "utm_source": "referral"
-    }
+    "utmSource": "referral"
   }
 ]

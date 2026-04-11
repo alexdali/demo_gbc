@@ -4,6 +4,7 @@ import { loadMockOrderEnrichment } from "@/lib/mock-orders";
 import {
   getHighValueOrderIds,
   isHighValueOrder,
+  preserveExistingAnalyticFields,
   shouldSkipInitialBackfillNotifications,
 } from "@/lib/sync-logic";
 import { sendTelegramMessage } from "@/lib/telegram";
@@ -50,6 +51,32 @@ async function upsertOrders(rows: SupabaseOrderRow[]) {
   if (error) {
     throw new AppError("Failed to upsert synced orders into Supabase.", 500, error.message);
   }
+}
+
+async function getExistingOrdersMap(retailcrmOrderIds: number[]) {
+  if (retailcrmOrderIds.length === 0) {
+    return new Map<number, Pick<SupabaseOrderRow, "city" | "utm_source_code">>();
+  }
+
+  const supabase = getSupabaseAdminClient();
+  const { data, error } = await supabase
+    .from("orders")
+    .select("retailcrm_order_id, city, utm_source_code")
+    .in("retailcrm_order_id", retailcrmOrderIds);
+
+  if (error) {
+    throw new AppError("Failed to read existing analytic fields from Supabase.", 500, error.message);
+  }
+
+  return new Map(
+    (data ?? []).map((row) => [
+      row.retailcrm_order_id,
+      {
+        city: row.city ?? null,
+        utm_source_code: row.utm_source_code ?? null,
+      },
+    ]),
+  );
 }
 
 async function markHighValueOrdersAsNotified(rows: SupabaseOrderRow[]) {
@@ -111,7 +138,7 @@ async function rollbackHighValueClaim(retailcrmOrderId: number) {
 }
 
 export async function syncRetailCrmToSupabase(): Promise<SyncResult> {
-  const rows: SupabaseOrderRow[] = [];
+  const fetchedRows: SupabaseOrderRow[] = [];
   const mockOrderEnrichment = await loadMockOrderEnrichment();
   const ordersCountBeforeSync = await getOrdersCount();
   let page = 1;
@@ -122,7 +149,7 @@ export async function syncRetailCrmToSupabase(): Promise<SyncResult> {
     const response = await listRetailCrmOrders(page, 100);
     const orders = response.orders ?? [];
     pagesFetched += 1;
-    rows.push(
+    fetchedRows.push(
       ...orders.map((order) =>
         mapRetailCrmOrderToSupabaseRow(
           order,
@@ -134,7 +161,7 @@ export async function syncRetailCrmToSupabase(): Promise<SyncResult> {
     page += 1;
   } while (page <= totalPages);
 
-  if (rows.length === 0) {
+  if (fetchedRows.length === 0) {
     return {
       pagesFetched,
       ordersFetched: 0,
@@ -144,6 +171,13 @@ export async function syncRetailCrmToSupabase(): Promise<SyncResult> {
       skippedInitialBackfillNotifications: false,
     };
   }
+
+  const existingOrdersMap = await getExistingOrdersMap(
+    fetchedRows.map((row) => row.retailcrm_order_id),
+  );
+  const rows = fetchedRows.map((row) =>
+    preserveExistingAnalyticFields(row, existingOrdersMap.get(row.retailcrm_order_id)),
+  );
 
   await upsertOrders(rows);
 

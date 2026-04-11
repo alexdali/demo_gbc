@@ -1,5 +1,6 @@
 import { format } from "date-fns";
 
+import { extractUtmSourceFromCustomFields } from "@/lib/utm-source";
 import type { BreakdownPoint, DailyOrdersPoint, MockOrder, RetailCrmOrder, SupabaseOrderRow } from "@/types/order";
 import type { MockOrderEnrichment } from "@/lib/mock-orders";
 
@@ -63,7 +64,7 @@ export function mapRetailCrmOrderToSupabaseRow(
     customer_phone: order.phone ?? null,
     city: order.delivery?.address?.city ?? enrichment?.city ?? null,
     status: order.status ?? null,
-    utm_source: order.customFields?.utm_source ?? enrichment?.utmSource ?? null,
+    utm_source_code: extractUtmSourceFromCustomFields(order.customFields) ?? enrichment?.utmSource ?? null,
     total_amount: calculateRetailCrmOrderTotal(order),
     currency: "KZT",
     raw_payload: order,
@@ -71,14 +72,14 @@ export function mapRetailCrmOrderToSupabaseRow(
   };
 }
 
-export function buildHighValueMessage(row: Pick<SupabaseOrderRow, "order_number" | "retailcrm_order_id" | "total_amount" | "customer_name" | "city" | "utm_source">) {
+export function buildHighValueMessage(row: Pick<SupabaseOrderRow, "order_number" | "retailcrm_order_id" | "total_amount" | "customer_name" | "city" | "utm_source_code">) {
   return [
     "Новый крупный заказ",
     `Заказ: #${row.order_number ?? row.retailcrm_order_id}`,
     `Сумма: ${new Intl.NumberFormat("ru-RU").format(row.total_amount)} ₸`,
     `Клиент: ${row.customer_name ?? "Не указан"}`,
     `Город: ${row.city ?? "Не указан"}`,
-    `Источник: ${row.utm_source ?? "Не указан"}`,
+    `Источник: ${row.utm_source_code ?? "Не указан"}`,
   ].join("\n");
 }
 

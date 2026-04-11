@@ -6,7 +6,7 @@ export async function getDashboardData() {
   const supabase = getSupabaseAdminClient();
   const { data, error } = await supabase
     .from("orders")
-    .select("retailcrm_order_id, order_number, created_at, city, status, utm_source, total_amount, notified_high_value")
+    .select("retailcrm_order_id, order_number, created_at, city, status, utm_source_code, total_amount, notified_high_value")
     .order("created_at", { ascending: true });
 
   const rows = ((error ? [] : data) ?? []) as Array<
@@ -17,7 +17,7 @@ export async function getDashboardData() {
       | "created_at"
       | "city"
       | "status"
-      | "utm_source"
+      | "utm_source_code"
       | "total_amount"
       | "notified_high_value"
     >
@@ -36,7 +36,7 @@ export async function getDashboardData() {
     rows,
     kpis,
     dailyOrders: buildDailyOrders(rows),
-    bySource: buildBreakdown(rows, "utm_source"),
+    bySource: buildBreakdown(rows, "utm_source_code"),
     byCity: buildBreakdown(rows, "city"),
   };
 }

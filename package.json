@@ -10,6 +10,7 @@
     "lint": "eslint .",
     "test": "vitest run",
     "import:retailcrm": "tsx src/scripts/import-mock-to-retailcrm.ts",
+    "bootstrap:utm-dictionary": "tsx src/scripts/bootstrap-retailcrm-utm-dictionary.ts",
     "sync:orders": "tsx src/scripts/sync-retailcrm-to-supabase.ts",
     "cleanup:supabase": "tsx src/scripts/cleanup-supabase-by-prefix.ts",
     "telegram:test": "tsx src/scripts/send-test-telegram.ts"

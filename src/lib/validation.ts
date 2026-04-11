@@ -8,6 +8,7 @@ export const mockOrderSchema = z.object({
   lastName: z.string().trim().min(1, "Mock order must include lastName."),
   phone: z.string().trim().min(1, "Mock order must include phone."),
   email: z.string().email().optional(),
+  utmSource: z.string().trim().min(1, "Mock order utmSource cannot be empty.").optional(),
   orderType: z.string().trim().min(1).optional(),
   orderMethod: z.string().trim().min(1).optional(),
   status: z.string().trim().min(1).optional(),
@@ -80,6 +81,11 @@ export const importScriptArgsSchema = z.object({
 
 export const cleanupScriptArgsSchema = z.object({
   prefix: z.string().trim().min(1, "Cleanup prefix is required."),
+});
+
+export const bootstrapUtmDictionaryArgsSchema = z.object({
+  dryRun: z.boolean(),
+  filePath: z.string().trim().min(1).nullable(),
 });
 
 export function validateOrThrow<T>(schema: z.ZodSchema<T>, value: unknown, message: string) {

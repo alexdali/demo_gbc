@@ -38,7 +38,7 @@ a {
 .dashboard-shell {
   width: min(1180px, calc(100vw - 32px));
   margin: 0 auto;
-  padding: 32px 0 72px;
+  padding: 18px 0 22px;
 }
 
 .hero-card,
@@ -101,33 +101,47 @@ a {
 }
 
 .dashboard-shell {
+  width: min(1320px, calc(100vw - 32px));
   display: grid;
-  gap: 24px;
+  gap: 12px;
+  min-height: 100vh;
+  grid-template-rows: auto auto minmax(0, 1fr);
 }
 
 .dashboard-hero {
-  padding: 32px;
+  padding: 18px 20px;
   display: grid;
-  gap: 20px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: center;
+}
+
+.dashboard-hero-copy {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
 }
 
 .dashboard-actions {
   display: grid;
-  gap: 8px;
-  justify-items: start;
+  gap: 4px;
+  justify-items: end;
+  align-content: center;
+  text-align: right;
+  min-width: 320px;
 }
 
 .primary-action-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 48px;
-  padding: 0 20px;
+  min-height: 40px;
+  padding: 0 16px;
   border: 0;
   border-radius: 999px;
   background: linear-gradient(135deg, var(--secondary), #356b5a);
   color: #fff;
-  font-size: 0.96rem;
+  font-size: 0.88rem;
   font-weight: 700;
   cursor: pointer;
   box-shadow: 0 16px 40px rgba(36, 68, 58, 0.18);
@@ -145,6 +159,8 @@ a {
 
 .inline-status {
   font-weight: 700;
+  font-size: 0.86rem;
+  line-height: 1.25;
 }
 
 .inline-status--idle {
@@ -161,40 +177,68 @@ a {
 
 .inline-status-details {
   color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.35;
+  max-width: 320px;
 }
 
 .kpi-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 16px;
+  gap: 12px;
 }
 
 .kpi-card {
-  padding: 24px;
+  min-height: 0;
+  padding: 10px 14px;
   display: grid;
-  gap: 10px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px;
 }
 
 .kpi-card span {
   color: var(--muted);
-  font-size: 0.92rem;
+  font-size: 0.76rem;
+  line-height: 1.2;
+  white-space: nowrap;
 }
 
 .kpi-card strong {
   display: inline-block;
   white-space: nowrap;
-  font-size: clamp(1.55rem, 2.6vw, 2.55rem);
+  font-size: clamp(1.04rem, 1.45vw, 1.28rem);
   line-height: 1;
   letter-spacing: -0.03em;
+  text-align: right;
 }
 
 .charts-grid {
   display: grid;
-  gap: 16px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-areas:
+    "daily daily"
+    "city source";
+  gap: 12px;
+  min-height: 0;
 }
 
 .chart-card {
-  padding: 24px;
+  padding: 16px 18px 14px;
+  display: flex;
+  flex-direction: column;
+}
+
+.chart-card--daily {
+  grid-area: daily;
+}
+
+.chart-card--city {
+  grid-area: city;
+}
+
+.chart-card--source {
+  grid-area: source;
 }
 
 .error-card {
@@ -219,23 +263,46 @@ a {
 
 .chart-header {
   display: grid;
-  gap: 6px;
-  margin-bottom: 18px;
+  gap: 2px;
+  margin-bottom: 8px;
 }
 
 .chart-header h2 {
   margin: 0;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .chart-body {
   width: 100%;
-  min-height: 320px;
+  height: clamp(210px, 24vh, 240px);
+  min-height: 0;
+}
+
+.chart-card--daily .chart-body {
+  height: clamp(280px, 34vh, 360px);
+}
+
+.dashboard-hero h1 {
+  font-size: clamp(1.5rem, 2.2vw, 2rem);
+  line-height: 1;
+}
+
+.dashboard-hero p {
+  max-width: 760px;
+  font-size: 0.9rem;
+  line-height: 1.45;
 }
 
 @media (max-width: 900px) {
   .kpi-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .charts-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas:
+      "daily daily"
+      "city source";
   }
 
   .hero-card,
@@ -249,13 +316,23 @@ a {
     min-height: auto;
     padding: 36px 24px;
   }
+
+  .dashboard-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-actions {
+    justify-items: start;
+    text-align: left;
+    min-width: 0;
+  }
 }
 
 @media (max-width: 640px) {
   .landing-shell,
   .dashboard-shell {
     width: min(100vw - 20px, 1180px);
-    padding: 18px 0 42px;
+    padding: 14px 0 24px;
   }
 
   .dashboard-hero,
@@ -264,7 +341,37 @@ a {
     padding: 20px;
   }
 
+  .dashboard-shell {
+    grid-template-rows: none;
+    min-height: auto;
+  }
+
   .kpi-grid {
     grid-template-columns: 1fr;
+  }
+
+  .kpi-card {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .kpi-card strong {
+    text-align: left;
+  }
+
+  .charts-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "daily"
+      "city"
+      "source";
+  }
+
+  .chart-body {
+    height: 240px;
+  }
+
+  .chart-card--daily .chart-body {
+    height: 240px;
   }
 }

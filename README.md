@@ -106,11 +106,11 @@ npm run bootstrap:utm-dictionary
 ## Current status
 
 - проект и структура настроены
-- `Supabase` migration добавлена в [`supabase/migrations`](./supabase/migrations)
-- Telegram test-send работает
-- 50 заказов импортированы в `RetailCRM`
-- 50 заказов синхронизированы в `Supabase`
+- `Supabase` migration'ы добавлены в [`supabase/migrations`](./supabase/migrations)
+- `RetailCRM` bootstrap для dictionary-backed поля `utm_source` реализован отдельным скриптом
+- Telegram test-send и high-value notifications работают
 - dashboard page читает реальные данные из `Supabase`
+- `main` и `stage` можно разводить на отдельные `RetailCRM` и `Supabase` окружения
 
 ## Cleanup batch
 
@@ -177,8 +177,10 @@ npm run cleanup:supabase -- --prefix=<test-prefix>
 - schema в `Supabase` заведена как SQL-файл и как CLI migration
 - для `utmSource` зафиксирован единый внутренний формат JSON, а в CRM это поле пишется как dictionary-backed `customFields.utm_source`
 - уведомления в Telegram защищены от дублей и не спамят при первичном backfill
+- тестовые batch-файлы вынесены в `data/local/`, чтобы merge `stage -> main` не затаскивал временные JSON-наборы в production-ветку
 
-Что осталось добить:
+Итоговое состояние:
 
-- smoke-test публичного Vercel deployment
-- финальный README-блок с промптами, где AI застревал и как это было решено
+- проект можно разворачивать в изолированных `Preview` и `Production` окружениях
+- `RetailCRM` и `Supabase` больше не зависят от локального enrichment для источников заказов
+- синхронизация, dashboard и Telegram работают end-to-end на реальных данных

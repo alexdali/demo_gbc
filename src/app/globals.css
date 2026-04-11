@@ -216,6 +216,9 @@ a {
 .charts-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-areas:
+    "daily daily"
+    "city source";
   gap: 12px;
   min-height: 0;
 }
@@ -227,7 +230,15 @@ a {
 }
 
 .chart-card--daily {
-  grid-column: 1 / -1;
+  grid-area: daily;
+}
+
+.chart-card--city {
+  grid-area: city;
+}
+
+.chart-card--source {
+  grid-area: source;
 }
 
 .error-card {
@@ -289,10 +300,9 @@ a {
 
   .charts-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .chart-card--daily {
-    grid-column: 1 / -1;
+    grid-template-areas:
+      "daily daily"
+      "city source";
   }
 
   .hero-card,
@@ -351,10 +361,10 @@ a {
 
   .charts-grid {
     grid-template-columns: 1fr;
-  }
-
-  .chart-card--daily {
-    grid-column: auto;
+    grid-template-areas:
+      "daily"
+      "city"
+      "source";
   }
 
   .chart-body {

@@ -34,7 +34,7 @@ export function DashboardCharts({ dailyOrders, bySource, byCity }: Props) {
           <p>Количество и выручка по дням</p>
         </div>
         <div className="chart-body">
-          <ResponsiveContainer width="100%" height={320}>
+          <ResponsiveContainer width="100%" height="100%">
             <LineChart data={dailyOrders} margin={{ top: 8, right: 16, bottom: 8, left: 20 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#d6d2c4" />
               <XAxis dataKey="date" stroke="#54473f" />
@@ -58,7 +58,7 @@ export function DashboardCharts({ dailyOrders, bySource, byCity }: Props) {
           <p>Топ UTM source по количеству</p>
         </div>
         <div className="chart-body">
-          <ResponsiveContainer width="100%" height={320}>
+          <ResponsiveContainer width="100%" height="100%">
             <BarChart data={bySource}>
               <CartesianGrid strokeDasharray="3 3" stroke="#d6d2c4" />
               <XAxis dataKey="label" stroke="#54473f" />
@@ -76,7 +76,7 @@ export function DashboardCharts({ dailyOrders, bySource, byCity }: Props) {
           <p>Распределение заказов по географии</p>
         </div>
         <div className="chart-body">
-          <ResponsiveContainer width="100%" height={320}>
+          <ResponsiveContainer width="100%" height="100%">
             <BarChart data={byCity}>
               <CartesianGrid strokeDasharray="3 3" stroke="#d6d2c4" />
               <XAxis dataKey="label" stroke="#54473f" />

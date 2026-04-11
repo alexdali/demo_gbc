@@ -14,12 +14,12 @@ export default async function DashboardPage() {
   return (
     <main className="dashboard-shell">
       <section className="dashboard-hero">
-        <div>
-          <span className="eyebrow">Analytics Dashboard</span>
+        <div className="dashboard-hero-copy">
+          <span className="eyebrow">GBC Analytics Dashboard</span>
           <h1>Заказы из RetailCRM</h1>
           <p>
-            Данные загружаются из Supabase после синхронизации заказов из CRM.
-            Дашборд построен как MVP без пользовательской авторизации и сложного BI-слоя.
+            Supabase хранит аналитическую копию заказов, а ручная синхронизация подтягивает
+            свежие данные из CRM без перегруженного интерфейса.
           </p>
         </div>
         <SyncButton />

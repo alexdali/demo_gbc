@@ -1,5 +1,6 @@
 import { getSupabaseAdminClient } from "@/lib/supabase";
 import { AppError } from "@/lib/errors";
+import { featureFlags } from "@/lib/env";
 import { loadMockOrderEnrichment } from "@/lib/mock-orders";
 import {
   getHighValueOrderIds,
@@ -181,7 +182,12 @@ export async function syncRetailCrmToSupabase(): Promise<SyncResult> {
 
   await upsertOrders(rows);
 
-  if (shouldSkipInitialBackfillNotifications(ordersCountBeforeSync)) {
+  if (
+    shouldSkipInitialBackfillNotifications(
+      ordersCountBeforeSync,
+      featureFlags.sendInitialBackfillNotifications,
+    )
+  ) {
     await markHighValueOrdersAsNotified(rows);
 
     return {

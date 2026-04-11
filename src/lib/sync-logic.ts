@@ -3,8 +3,11 @@ import type { SupabaseOrderRow } from "@/types/order";
 
 type PreservedFields = Pick<SupabaseOrderRow, "city" | "utm_source_code">;
 
-export function shouldSkipInitialBackfillNotifications(ordersCountBeforeSync: number) {
-  return ordersCountBeforeSync === 0;
+export function shouldSkipInitialBackfillNotifications(
+  ordersCountBeforeSync: number,
+  sendInitialBackfillNotifications: boolean,
+) {
+  return ordersCountBeforeSync === 0 && !sendInitialBackfillNotifications;
 }
 
 export function getHighValueOrderIds(rows: SupabaseOrderRow[]) {
